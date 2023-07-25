@@ -1,62 +1,53 @@
 <?php
 include('verificarlogin.php');
-include_once('dbcon.php');
 $logado = $_SESSION['Usuario'];
-$query = "SELECT COUNT(*) as total_rows FROM cadastrolivros";
-
-$result = mysqli_query($con, $query);
-$row = mysqli_fetch_assoc($result);
-$totalRows = $row['total_rows'];
-
-$query = "SELECT COUNT(*) as total_rows FROM alunos";
-
-$result = mysqli_query($con, $query);
-$row = mysqli_fetch_assoc($result);
-$totalalunos = $row['total_rows'];
-
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Biblioteca JBL</title>
-    <link rel="shortcut icon" href="img/logob-removebg-preview (1).png" type="image/x-icon">
+    <title>Cadastro de Livros</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100&display=swap');
-    </style>
-    <link href="/website/css/uicons-outline-rounded.css" rel="stylesheet">
+    <style>@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100&display=swap');</style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.9/css/boxicons.min.css">
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
     <link rel="stylesheet" href="css/style.css">
 </head>
+<!--cabeçario-->
 
 <body>
-    <img src="img/fundo-biblioteca.avif" class="imgFundo" alt="">
-    <!--Cabeçario-->
-    <header>
+    
+<header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <h3 class="startup">UPBOOK</h3>
+                <h3 class="logo">UPBOOK</h3>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <h3 class="usuario"><img src="img/usuario.png" alt=""
-                            style="width: 16px;height: 16px; margin-bottom:6px;"> Usuário: <?php
-                            echo "$logado"
-                                ?></h3>
+                            style="width: 16px;height: 16px; margin-bottom:6px;">
+                        Usuário:
+                        <?php
+                        echo "$logado"
+                            ?>
+                    </h3>
                 </div>
-                <a href="logout.php"><button class="sair" id="sair">Sair</button></a>
+                <a href="logout.php"><button class="sair" id="sair ">Sair</button></a>
             </div>
         </nav>
     </header>
-    <!--Conteudo principal-->
+
+
     <main class="">
-        <div class="row" style="margin:0;">
-            <!--Navegação-->
-            <div class="col-md-2 navegacao">
-                <div class="divbotoes">
-                    <img src="img/logob-removebg-preview (2).png" class="logo" alt="">
+
+        <div class="row">
+
+            <div class="col-md-2 t">
+                <div class="h">
+                    <img src="img/logob-removebg-preview (2).png" class="logob" alt="">
                     <a href="home.php"> <button type="button" class=" bntPag mx-3">Início <svg
                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-house-door-fill" viewBox="0 0 16 16">
@@ -102,59 +93,11 @@ $totalalunos = $row['total_rows'];
                             </svg></button></a>
                 </div>
             </div>
-            <!--Conteudo principal-->
-            <div id="principal" class="col-md-5 cards">
+            <!--conteudo principal-->
+            <div id="principal" class="principal col-md-5 r">
 
-                <div class="container">
-
-                    <h1 id="titulo"> Sistema Bibliotecário</h1>
-
-                    <div class="row conteudoPrincipal ">
-                        <div class="lista lista1"></div>
-                        <div class="col-md-2 caixas caixa1">
-                            <img src="img/livros.png " style="height: 40%; margin-top: 22px;" alt="">
-                            <h4>Livros Cadastrado</h4>
-                            <h5>TOTAL: <span style="color:#669697; font-size: 30px;">
-                                    <?php echo "$totalRows" ?>
-                                </span></h5>
-                        </div>
-
-                        <div class="lista lista2"></div>
-                        <div class="col-md-2 caixas caixa2">
-                            <img src="img/alarme.png" style="height: 40%; margin-top: 16px; margin-bottom: 4px;" alt="">
-                            <h4 class="imgAlarme">Livros Pendentes</h4>
-                            <h5 class="imgAlarme">TOTAL: <label for="" style=" color: red;font-size: 30px;">2</label>
-                            </h5>
-                        </div>
-
-                    </div>
-
-                    <div class="row conteudoPrincipal">
-                        <div class="lista lista3"></div>
-                        <div class="col-md-2 caixas caixa4">
-                            <img src="img/lupa-livro.png" style="height: 40%; margin-top: 20px;" alt="">
-                            <h4>Livros Emprestados</h4>
-                            <h5>TOTAL: <label for="" style="color: #BD552E; font-size: 30px;">14</label></h5>
-                        </div>
-
-                        <div class="lista lista4"></div>
-                        <div class="col-md-2 caixas caixa3">
-                            <img src="img/leitor2.png" style="height: 40%; margin-top: 20px;" alt="">
-                            <h4>Estudantes Cadastrados</h4>
-                            <h5>TOTAL: <span style="color:#5156A9; font-size: 30px;">
-                                    <?php echo "$totalalunos" ?>
-                                </span></h5>
-                        </div>
-                    </div>
-                </div>
             </div>
         </div>
-    </main>
-
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
-
 </body>
 
 </html>

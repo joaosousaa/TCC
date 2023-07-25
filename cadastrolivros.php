@@ -16,18 +16,19 @@ $logado = $_SESSION['Usuario'];
     <style>@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100&display=swap');</style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.9/css/boxicons.min.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
-    <link rel="stylesheet" href="css/cadastrolivros.css">
+    <link rel="stylesheet" href="css/tabelas.css">
 </head>
 <!--cabeçario-->
 
 <body>
-    <img src="img/funfoofc.avif" class="imgFundo" alt="">
-    <header>
+    
+<header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <h3 class="logo">UPBOOK</h3>
+                <h3 class="startup">UPBOOK</h3>
                 <div class="collapse navbar-collapse" id="navbarNav">
-                    <h3 class="usuario">
+                    <h3 class="usuario"><img src="img/usuario.png" alt=""
+                            style="width: 16px;height: 16px; margin-bottom:6px;">
                         Usuário:
                         <?php
                         echo "$logado"
@@ -44,9 +45,9 @@ $logado = $_SESSION['Usuario'];
 
         <div class="row">
 
-            <div class="col-md-2 t">
-                <div class="h">
-                    <img src="img/logob-removebg-preview (2).png" class="logob" alt="">
+            <div class="col-md-2 navegacao ">
+                <div class="divbotoes">
+                    <img src="img/logob-removebg-preview (2).png" class="logo" alt="">
                     <a href="home.php"> <button type="button" class=" bntPag mx-3">Início <svg
                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-house-door-fill" viewBox="0 0 16 16">
@@ -65,7 +66,7 @@ $logado = $_SESSION['Usuario'];
                                 <path
                                     d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
                             </svg></button></a>
-                    <a href="./paginas/emprestimo.html"><button type="button" class=" bntPag btn-info mx-3"><i
+                    <a href="emprestimo.php"><button type="button" class=" bntPag btn-info mx-3"><i
                                 class="fi fi-sr-home"></i> Empréstimo <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                 height="16" fill="currentColor" class="bi bi-file-earmark-arrow-down-fill"
                                 viewBox="0 0 16 16">
@@ -95,7 +96,7 @@ $logado = $_SESSION['Usuario'];
             <!--conteudo principal-->
             <div id="principal" class="principal col-md-5 r">
 
-
+        
 
                 <div class="modal fade" id="livrosAddModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
@@ -259,24 +260,27 @@ $logado = $_SESSION['Usuario'];
                     </div>
                 </div>
 
-                <div class="container mt-4">
-                    <h1 id="sistema">Acervo/Cadastro de Livros</h1>
+                
+               
+                    <h1 class="titulo">Acervo/Cadastro de Livros</h1>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="card" style="whidth:100%;">
+                            <div class="card" style="whidth:100%; border-radius: 0;">
                                 <div class="card-header">
-
                                     <form action="">
+                                 
                                         <div class="box-search">
                                             <input name="busca" class="form-control w-25" value="<?php if (isset($_GET['busca']))
                                                 echo $_GET['busca']; ?>" placeholder="Digite os termos de pesquisa"
                                                 type="text">
                                             <button type="submit" class="btn btn-primary">Pesquisar</button>
-                                            <button type="button" class="btn btn-primary float-end"
-                                                data-bs-toggle="modal" data-bs-target="#livrosAddModal"
-                                                style="margin-left: 68vh;">
-                                                Adicionar Livros
-                                            </button>
+                                            <div style="float: right; width: 100%; margin-right:1.5%">
+                                                <button type="button" class="btn btn-primary float-end"
+                                                    data-bs-toggle="modal" data-bs-target="#livrosAddModal"
+                                                    >
+                                                    Adicionar Livros
+                                                </button>
+                                            </div>
                                         </div>
                                     </form>
 
@@ -468,7 +472,7 @@ $logado = $_SESSION['Usuario'];
                             </div>
                         </div>
                     </div>
-                </div>
+               
 
             </div>
         </div>
