@@ -46,8 +46,8 @@ $logado = $_SESSION['Usuario'];
         <div class="row">
 
             <div class="col-md-2 t">
-                <div class="h">
-                    <img src="img/logob-removebg-preview (2).png" class="logob" alt="">
+                <div class="navegacao">
+                    <img src="img/logob-removebg-preview (2).png" class="logo" alt="">
                     <a href="home.php"> <button type="button" class=" bntPag mx-3">Início <svg
                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-house-door-fill" viewBox="0 0 16 16">
