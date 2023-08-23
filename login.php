@@ -20,11 +20,12 @@ if (isset($_GET['erro'])) {
 <html>
 
 <head>
-  
-  <title>Tela de Login</title>
 
+  <title>Tela de Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
   <style>
-     @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100&display=swap');
 
     body {
       font-family: Arial, sans-serif;
@@ -42,13 +43,12 @@ if (isset($_GET['erro'])) {
     }
 
     .container {
-      background-color: white;
-      height: 535px;
-      width: 325px;
+      background-color: #ffffff1c;
+      height: 400px;
+      width: 400px;
       margin-left: 280px;
       margin-top: 23vh;
       padding: 20px;
-      border-radius: 20px;
       box-shadow: 12px 21px 30px rgb(0 0 0 / 51%);
       transition: transform 0.3s ease-in-out;
     }
@@ -58,30 +58,33 @@ if (isset($_GET['erro'])) {
     }
 
     form {
-      margin-top: 12vh;
+      margin: auto;
+      width: 300px;
+      margin-top: 2vh;
     }
 
     .container h2 {
       text-align: center;
       margin-top: 40px;
-      font-size: 30px;
-      color: #000000;
+      font-size: 40px;
+      color: white;
     }
 
     .container input[type="text"],
     .container input[type="password"] {
-      width: 93%;
-      margin-bottom: 30PX;
+      width: 92%;
       padding: 10px;
       border-radius: 20px;
       margin-bottom: 25px;
-      border: 1px solid #000000;
+      margin-top: 5px;
+      border: none;
+      background-color: #ffffff38;
       transition: border-color 0.3s ease-in-out;
     }
 
     .container input[type="text"]:focus,
     .container input[type="password"]:focus {
-      border-color: #4c6faf;
+      border: none;
     }
 
     .container input[type="submit"] {
@@ -109,28 +112,43 @@ if (isset($_GET['erro'])) {
 
     .container h2 span {
 
-      color: #302DAE;
+
       text-decoration: underline;
     }
+
+    .campos {
+      color: white;
+      margin-left: 10px;
+    }
+  .texto{
+  
+  }
   </style>
 </head>
 
 <body>
 
-  <img src="img/b82c79e1-53cb-4055-8563-88d752b0425b.png" class="imgh" alt="">
+  <img src="img/fundo2.jfif" class="imgh" alt="">
   <div style="background-color:coral;margin:10px;">
     <?php echo $erro ?? '' ?>
   </div>
   <!--Card Login-->
-  <div class="container">
-   
-    <h2><span>Login</span> Biblioteca</h2>
+  <div class=" row">
 
-    <form action="" method="post">
-      <input type="text" placeholder="Usuario" id="login" name="Usuario" required>
-      <input type="password" placeholder="Senha" id="senha" name="Senha" required>
-      <input type="submit" name="login" value="Entrar">
-    </form>
+    <div class="col texto" >
+<h1>asdfdf</h1>
+    </div>
+
+    <div class="container" >
+      <form action="" method="post" class="col " >
+      <h2>Sign <span> In</span></h2>
+        <label for="" class="campos">Usuario</label>
+        <input type="text" id="login" name="Usuario" required>
+        <label for="" class="campos">Senha</label>
+        <input type="password" id="senha" name="Senha" required>
+        <input type="submit" name="login" value="Entrar">
+      </form>
+    </div>
   </div>
 
 </body>

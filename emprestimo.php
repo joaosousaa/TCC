@@ -3,6 +3,23 @@ include('verificarlogin.php');
 $logado = $_SESSION['Usuario'];
 ?>
 
+<?php 
+
+if(isset($_POST['submit']))
+{
+    include_once('dbcon.php');
+    $aluno = $_POST['aluno'];
+    $livro = $_POST['livro'];
+    $data_emprestimo = $_POST['dt_emprestimo'];
+    $data_devolucao = $_POST['dt_devolucao'];
+   
+
+   $result = mysqli_query($con, "INSERT INTO emprestimos (aluno_id,livro_id,dt_emprestimo,dt_devolucao) VALUES ('$aluno','$livro','$data_emprestimo','$data_devolucao')");
+
+}
+
+
+?>
 <!DOCTYPE html>
 <html lang="pt-br">
 
@@ -13,19 +30,22 @@ $logado = $_SESSION['Usuario'];
     <title>Cadastro de Livros</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <style>@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100&display=swap');</style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100&display=swap');
+    </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.9/css/boxicons.min.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
-    <link rel="stylesheet" href="css/style.css">
+    <link href="https://cdn.datatables.net/v/bs5/dt-1.13.6/datatables.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/emprestimo.css">
 </head>
 <!--cabeçario-->
 
 <body>
-    
-<header>
+<img src="img/fundo-biblioteca.avif" class="imgFundo" alt="">
+    <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <h3 class="logo">UPBOOK</h3>
+                <h3 class="startup">UPBOOK</h3>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <h3 class="usuario"><img src="img/usuario.png" alt=""
                             style="width: 16px;height: 16px; margin-bottom:6px;">
@@ -45,9 +65,9 @@ $logado = $_SESSION['Usuario'];
 
         <div class="row">
 
-            <div class="col-md-2 t">
-                <div class="h">
-                    <img src="img/logob-removebg-preview (2).png" class="logob" alt="">
+            <div class="col-md-2 navegacao">
+                <div class="divbotoes">
+                    <img src="img/logob-removebg-preview (2).png" class="logo" alt="">
                     <a href="home.php"> <button type="button" class=" bntPag mx-3">Início <svg
                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-house-door-fill" viewBox="0 0 16 16">
@@ -94,10 +114,219 @@ $logado = $_SESSION['Usuario'];
                 </div>
             </div>
             <!--conteudo principal-->
-            <div id="principal" class="principal col-md-5 r">
+            <div id="principal" class="conteudoPrincipal col-md-5 ">
+               
+
+                <!--cabeçario-->
+
+
+                <main class="">
+
+                    <div class="row">
+                        <!--conteudo principal-->
+                        <div id="principal" class="col-md-5 r">
+                            <div class="container">
+                                <h1 class="mt-4">Formulário de Empréstimo de Livros</h1>
+
+                                <form action="emprestimo.php" method="POST " class="formLivro">
+                                    <div class="form-group">
+                                        <label for="nome">Aluno:</label>
+                                        <input type="text" class="form-control" id="nomeAluno" name="aluno" required>
+                                        <input type="text" hidden id="idAluno" required>
+                                    </div>
+
+
+                                    <div class="form-group">
+                                        <label for="livro">Nome do Livro:</label>
+                                        <input type="text" class="form-control" name="livro" id="nomeLivro" required>
+                                    </div>
+
+                                    <div class="form-group row">
+                                        <div class="col" >
+                                            <label for="data_emprestimo">Data de Empréstimo:</label>
+                                            <input type="date" class="form-control" id="data_emprestimo"
+                                                name="data_emprestimo" required>
+                                        </div>
+
+                                   
+                                        <div class="col" >
+                                            <label for="data_devolucao">Data de Devolução:</label>
+                                            <input type="date" class="form-control" id="data_devolucao"
+                                                name="data_devolucao" required>
+                                        </div>
+                                    </div>
+
+                                    <button type="submit" name="submit" class="btn btn-primary">Enviar</button>
+                                    
+                                </form>
+                            </div>
+                        </div>
+                </main>
 
             </div>
         </div>
+
+
+        <div class="modal fade" id="modalProcurarAluno" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Procurar Alunos</h5>
+                        <button type="button" id="closeModalProcurarAluno" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Fechar"></button>
+                    </div>
+                    <!--salvar estudante-->
+                    <form id="saveLivros">
+                        <div class="modal-body">
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table id="tableProcurarAluno" class="table table-striped table-sm"
+                                        style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Nome</th>
+                                                <th>Ano/Turma</th>
+                                                <th>Curso</th>
+                                                <th>Email</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbodyProcurarAluno">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="modal fade" id="modalProcurarLivro" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog modal-xl">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Procurar Livros</h5>
+                        <button type="button" id="closeModalProcurarLivro" class="btn-close" data-bs-dismiss="modal"
+                            aria-label="Fechar"></button>
+                    </div>
+                    <!--salvar estudante-->
+                    <form id="saveLivros">
+                        <div class="modal-body">
+
+                            <div class="row">
+                                <div class="col-md-12">
+                                    <table id="tableProcurarLivro" class="table table-striped table-sm"
+                                        style="width:100%">
+                                        <thead>
+                                            <tr>
+                                                <th>Título</th>
+                                                <th>Autor</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody id="tbodyProcurarLivro">
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdn.datatables.net/v/bs5/dt-1.13.6/datatables.min.js"></script>
+        <script>
+
+            $(document).on('click', '#nomeAluno', function () {
+                $('#tbodyProcurarAluno').html(``);
+                $.ajax({
+                    type: "POST",
+                    url: "db/alunos.php",
+                    data: {
+                        method: 'INDEX'
+                    },
+                    success: function (response) {
+                        const alunos = JSON.parse(response);
+                        alunos.data.forEach(element => {
+                            $('#tbodyProcurarAluno').append(`
+                        <tr onclick="escolherAluno(${element.id}, '${element.nome}')">
+                            <td>${element.nome}</td>
+                            <td>${element.ano_turma}</td>
+                            <td>${element.curso}</td>
+                            <td>${element.email}</td>
+                        </tr>
+                        `);
+                        });
+
+                        table = $('#tableProcurarAluno').DataTable({
+                            language: {
+                                url: './assets/datable.json',
+                            }
+                        })
+
+                        $('#modalProcurarAluno').modal('show');
+
+                    }
+                });
+
+            });
+
+            $(document).on('click', '#nomeLivro', function () {
+                $('#tbodyProcurarLivro').html(``);
+                $.ajax({
+                    type: "POST",
+                    url: "db/livros.php",
+                    data: {
+                        method: 'INDEX'
+                    },
+                    success: function (response) {
+                        const livros = JSON.parse(response);
+                        livros.data.forEach(element => {
+                            $('#tbodyProcurarLivro').append(`
+                        <tr onclick="escolherLivro(${element.id}, '${element.titulo}')">
+                            <td>${element.titulo}</td>
+                            <td>${element.autor}</td>
+                        </tr>
+                        `);
+                        });
+
+                        table = $('#tableProcurarLivro').DataTable({
+                            language: {
+                                url: './assets/datable.json',
+                            }
+                        })
+
+                        $('#modalProcurarLivro').modal('show');
+
+                    }
+                });
+
+            });            
+
+            function escolherAluno(id, name) {
+                $('#closeModalProcurarAluno').click();
+                table.destroy();
+                $('#nomeAluno').val(name);
+                $('#idAluno').val(id);
+            }
+
+            function escolherLivro(id, title) {
+                $('#closeModalProcurarLivro').click();
+                table.destroy();
+                $('#nomeLivro').val(title);
+                $('#idLivro').val(id);
+            }
+        </script>
+
 </body>
 
 </html>

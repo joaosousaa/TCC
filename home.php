@@ -46,7 +46,7 @@ $totalalunos = $row['total_rows'];
                             echo "$logado"
                                 ?></h3>
                 </div>
-                <a href="logout.php"><button class="sair" id="sair">Sair</button></a>
+                <a href="login/index.php"><button class="sair" id="sair">Sair</button></a>
             </div>
         </nav>
     </header>
