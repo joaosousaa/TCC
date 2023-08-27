@@ -2,8 +2,7 @@
 session_start();
 
 if(!isset($_SESSION['Usuario'])){
-    header('Location: login.php?erro=true');
+    header('Location: login/index.php?erro=true');
     exit;
 }
-
 ?>

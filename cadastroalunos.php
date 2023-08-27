@@ -1,5 +1,5 @@
 <?php
-include('verificarlogin.php');
+include('login/verificarlogin.php');
 $logado = $_SESSION['Usuario'];
 ?>
 
@@ -37,7 +37,7 @@ $logado = $_SESSION['Usuario'];
                             ?>
                     </h3>
                 </div>
-                <a href="logout.php"><button class="sair" id="sair ">Sair</button></a>
+                <a href="login/logout.php"><button class="sair" id="sair ">Sair</button></a>
             </div>
         </nav>
     </header>
@@ -49,7 +49,7 @@ $logado = $_SESSION['Usuario'];
 
             <div class="col-md-2 navegacao ">
                 <div class="divbotoes">
-                    <img src="img/logob-removebg-preview (2).png" class="logo" alt="">
+                    <img src="img/logob(2).png" class="logo" alt="">
                     <a href="home.php"> <button type="button" class=" bntPag mx-3">Início <svg
                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-house-door-fill" viewBox="0 0 16 16">
