@@ -17,7 +17,7 @@ if (isset($_GET['erro'])) {
 ?>
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 <head>
 	<title>Login</title>
 	<meta charset="UTF-8">
