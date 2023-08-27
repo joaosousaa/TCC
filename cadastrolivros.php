@@ -262,7 +262,7 @@ $logado = $_SESSION['Usuario'];
 
                 
                
-                    <h1 class="titulo">Acervo/Cadastro de Livros</h1>
+                   
                     <div class="row">
                         <div class="col-md-12">
                             <div class="card" style="whidth:100%; border-radius: 0;">
@@ -274,6 +274,7 @@ $logado = $_SESSION['Usuario'];
                                                 echo $_GET['busca']; ?>" placeholder="Digite os termos de pesquisa"
                                                 type="text">
                                             <button type="submit" class="btn btn-primary">Pesquisar</button>
+                                            <h1 class="titulo">Controle de Livros</h1>
                                             <div style="float: right; width: 100%; margin-right:1.5%">
                                                 <button type="button" class="btn btn-primary float-end"
                                                     data-bs-toggle="modal" data-bs-target="#livrosAddModal"
