@@ -2,17 +2,19 @@
 
 require 'dbcon.php';
 
+
+
 if(isset($_POST['save_livros']))
 {
     $nome = mysqli_real_escape_string($con, $_POST['nome']);
-    $ano = mysqli_real_escape_string($con, $_POST['ano']);
+    $ano_turma = mysqli_real_escape_string($con, $_POST['ano_turma']);
     $curso = mysqli_real_escape_string($con, $_POST['curso']);
-    $turma = mysqli_real_escape_string($con, $_POST['turma']);
-    $quantidade_livro = mysqli_real_escape_string($con, $_POST['quantidade_livro']);
+    $email = mysqli_real_escape_string($con, $_POST['email']);
+   
     $observacao = mysqli_real_escape_string($con, $_POST['observacao']);
     $data_cadastro = mysqli_real_escape_string($con, $_POST['data_cadastro']);
 
-    if($nome == NULL || $ano == NULL || $curso == NULL || $turma == NULL || $quantidade_livro == NULL || $observacao == NULL || $data_cadastro == NULL)
+    if($nome == NULL || $ano_turma == NULL || $curso == NULL || $email == NULL || $observacao == NULL || $data_cadastro == NULL)
     {
         $res = [
             'status' => 422,
@@ -22,7 +24,7 @@ if(isset($_POST['save_livros']))
         return;
     }
 
-    $query = "INSERT INTO estudantes (nome,ano,curso,turma,quantidade_livro,observacao,data_cadastro) VALUES ('$nome','$ano','$curso','$turma','$quantidade_livro','$observacao','$data_cadastro')";
+    $query = "INSERT INTO alunos (nome,ano_turma,curso,email,observacao,data_cadastro) VALUES ('$nome','$ano_turma','$curso','$email','$observacao','$data_cadastro')";
     $query_run = mysqli_query($con, $query);
 
     if($query_run)
@@ -51,14 +53,13 @@ if(isset($_POST['update_livros']))
     $livros_id = mysqli_real_escape_string($con, $_POST['livros_id']);
 
     $nome = mysqli_real_escape_string($con, $_POST['nome']);
-    $ano = mysqli_real_escape_string($con, $_POST['ano']);
+    $ano_turma = mysqli_real_escape_string($con, $_POST['ano_turma']);
     $curso = mysqli_real_escape_string($con, $_POST['curso']);
-    $turma = mysqli_real_escape_string($con, $_POST['turma']);
-    $quantidade_livro = mysqli_real_escape_string($con, $_POST['quantidade_livro']);
+    $email = mysqli_real_escape_string($con, $_POST['email']);
     $observacao = mysqli_real_escape_string($con, $_POST['observacao']);
     $data_cadastro = mysqli_real_escape_string($con, $_POST['data_cadastro']);
 
-    if($nome == NULL || $ano == NULL || $curso == NULL || $turma == NULL || $quantidade_livro == NULL || $observacao == NULL || $data_cadastro == NULL)
+    if($nome == NULL || $ano_turma == NULL || $curso == NULL || $email == NULL || $observacao == NULL || $data_cadastro == NULL)
     {
         $res = [
             'status' => 422,
@@ -68,7 +69,7 @@ if(isset($_POST['update_livros']))
         return;
     }
 
-    $query = "UPDATE estudantes SET nome='$nome', ano='$ano', curso='$curso', turma='$turma', quantidade_livro='$quantidade_livro' , observacao='$observacao', data_cadastro='$data_cadastro'
+    $query = "UPDATE alunos SET nome='$nome', ano_turma='$ano_turma', curso='$curso', email='$email' , observacao='$observacao', data_cadastro='$data_cadastro'
                 WHERE id='$livros_id'";
     $query_run = mysqli_query($con, $query);
 
@@ -97,7 +98,7 @@ if(isset($_GET['livros_id']))
 {
     $livros_id = mysqli_real_escape_string($con, $_GET['livros_id']);
 
-    $query = "SELECT * FROM estudantes WHERE id='$livros_id'";
+    $query = "SELECT * FROM alunos WHERE id='$livros_id'";
     $query_run = mysqli_query($con, $query);
 
     if(mysqli_num_rows($query_run) == 1)
@@ -127,7 +128,7 @@ if(isset($_POST['delete_livros']))
 {
     $livros_id = mysqli_real_escape_string($con, $_POST['livros_id']);
 
-    $query = "DELETE FROM estudantes WHERE id='$livros_id'";
+    $query = "DELETE FROM alunos WHERE id='$livros_id'";
     $query_run = mysqli_query($con, $query);
 
     if($query_run)

@@ -1,5 +1,5 @@
 <?php
-include('verificarlogin.php');
+include('login/verificarlogin.php');
 include_once('dbcon.php');
 $logado = $_SESSION['Usuario'];
 $query = "SELECT COUNT(*) as total_rows FROM cadastrolivros";
@@ -8,12 +8,16 @@ $result = mysqli_query($con, $query);
 $row = mysqli_fetch_assoc($result);
 $totalRows = $row['total_rows'];
 
-?>
+$query = "SELECT COUNT(*) as total_rows FROM alunos";
 
+$result = mysqli_query($con, $query);
+$row = mysqli_fetch_assoc($result);
+$totalalunos = $row['total_rows'];
+
+?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,29 +34,29 @@ $totalRows = $row['total_rows'];
 </head>
 
 <body>
-    <img src="img/funfoofc.avif" class="imgFundo" alt="">
+    <img src="img/fundo-biblioteca.avif" class="imgFundo" alt="">
     <!--Cabeçario-->
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <h3 class="logo">UPBOOK</h3>
+                <h3 class="startup">UPBOOK</h3>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <h3 class="usuario"><img src="img/usuario.png" alt=""
                             style="width: 16px;height: 16px; margin-bottom:6px;"> Usuário: <?php
                             echo "$logado"
                                 ?></h3>
                 </div>
-                <a href="logout.php"><button class="sair" id="sair">Sair</button></a>
+                <a href="login/logout.php"><button class="sair" id="sair">Sair</button></a>
             </div>
         </nav>
     </header>
     <!--Conteudo principal-->
     <main class="">
-        <div class="row">
+        <div class="row" style="margin:0;">
             <!--Navegação-->
-            <div class="col-md-2 t">
-                <div class="h">
-                    <img src="img/logob-removebg-preview (2).png" class="logob" alt="">
+            <div class="col-md-2 navegacao">
+                <div class="divbotoes">
+                    <img src="img/logob(2).png" class="logo" alt="">
                     <a href="home.php"> <button type="button" class=" bntPag mx-3">Início <svg
                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-house-door-fill" viewBox="0 0 16 16">
@@ -71,7 +75,7 @@ $totalRows = $row['total_rows'];
                                 <path
                                     d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
                             </svg></button></a>
-                    <a href="./paginas/emprestimo.html"><button type="button" class=" bntPag btn-info mx-3"><i
+                    <a href="emprestimo.php"><button type="button" class=" bntPag btn-info mx-3"><i
                                 class="fi fi-sr-home"></i> Empréstimo <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                 height="16" fill="currentColor" class="bi bi-file-earmark-arrow-down-fill"
                                 viewBox="0 0 16 16">
@@ -99,11 +103,11 @@ $totalRows = $row['total_rows'];
                 </div>
             </div>
             <!--Conteudo principal-->
-            <div id="principal" class="col-md-5 r">
+            <div id="principal" class="col-md-5 cards">
 
                 <div class="container">
 
-                    <h1 id="sistema"> Sistema Bibliotecário</h1>
+                    <h1 id="titulo"> Sistema Bibliotecário</h1>
 
                     <div class="row conteudoPrincipal ">
                         <div class="lista lista1"></div>
@@ -119,7 +123,8 @@ $totalRows = $row['total_rows'];
                         <div class="col-md-2 caixas caixa2">
                             <img src="img/alarme.png" style="height: 40%; margin-top: 16px; margin-bottom: 4px;" alt="">
                             <h4 class="imgAlarme">Livros Pendentes</h4>
-                            <h5 class="imgAlarme">TOTAL: <label for="" style=" color: red;font-size: 30px;">2</label></h5>
+                            <h5 class="imgAlarme">TOTAL: <label for="" style=" color: red;font-size: 30px;">2</label>
+                            </h5>
                         </div>
 
                     </div>
@@ -136,7 +141,9 @@ $totalRows = $row['total_rows'];
                         <div class="col-md-2 caixas caixa3">
                             <img src="img/leitor2.png" style="height: 40%; margin-top: 20px;" alt="">
                             <h4>Estudantes Cadastrados</h4>
-                            <h5>TOTAL: <label for="" style="color:#5156A9;font-size: 30px;">55</label></h5>
+                            <h5>TOTAL: <span style="color:#5156A9; font-size: 30px;">
+                                    <?php echo "$totalalunos" ?>
+                                </span></h5>
                         </div>
                     </div>
                 </div>

@@ -1,5 +1,5 @@
 <?php
-include('verificarlogin.php');
+include('login/verificarlogin.php');
 $logado = $_SESSION['Usuario'];
 ?>
 
@@ -10,22 +10,24 @@ $logado = $_SESSION['Usuario'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Livros</title>
+    <title>Cadastro de Alunos</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <style>@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100&display=swap');</style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100&display=swap');
+    </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.9/css/boxicons.min.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
-    <link rel="stylesheet" href="css/cadastrolivros.css">
+    <link rel="stylesheet" href="css/tabelas.css">
 </head>
 <!--cabeçario-->
 
 <body>
-    <img src="img/funfoofc.avif" class="imgFundo" alt="">
+   
     <header>
         <nav class="navbar navbar-expand-lg bg-body-tertiary">
             <div class="container-fluid">
-                <h3 class="logo">UPBOOK</h3>
+                <h3 class="startup">UPBOOK</h3>
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <h3 class="usuario"><img src="img/usuario.png" alt=""
                             style="width: 16px;height: 16px; margin-bottom:6px;">
@@ -35,7 +37,7 @@ $logado = $_SESSION['Usuario'];
                             ?>
                     </h3>
                 </div>
-                <a href="logout.php"><button class="sair" id="sair ">Sair</button></a>
+                <a href="login/logout.php"><button class="sair" id="sair ">Sair</button></a>
             </div>
         </nav>
     </header>
@@ -45,9 +47,9 @@ $logado = $_SESSION['Usuario'];
 
         <div class="row">
 
-            <div class="col-md-2 t">
-                <div class="h">
-                    <img src="img/logob-removebg-preview (2).png" class="logob" alt="">
+            <div class="col-md-2 navegacao ">
+                <div class="divbotoes">
+                    <img src="img/logob(2).png" class="logo" alt="">
                     <a href="home.php"> <button type="button" class=" bntPag mx-3">Início <svg
                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-house-door-fill" viewBox="0 0 16 16">
@@ -60,13 +62,13 @@ $logado = $_SESSION['Usuario'];
                                 <path
                                     d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z" />
                             </svg></button></a>
-                    <a href="./paginas/cadastroaluno.html"><button type="button" class=" bntPag mx-3">Alunos <svg
+                    <a href="cadastroalunos.php"><button type="button" class=" bntPag mx-3">Alunos <svg
                                 xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                                 class="bi bi-people-fill" viewBox="0 0 16 16">
                                 <path
                                     d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
                             </svg></button></a>
-                    <a href="./paginas/emprestimo.html"><button type="button" class=" bntPag btn-info mx-3"><i
+                    <a href="emprestimo.php"><button type="button" class=" bntPag btn-info mx-3"><i
                                 class="fi fi-sr-home"></i> Empréstimo <svg xmlns="http://www.w3.org/2000/svg" width="16"
                                 height="16" fill="currentColor" class="bi bi-file-earmark-arrow-down-fill"
                                 viewBox="0 0 16 16">
@@ -96,14 +98,12 @@ $logado = $_SESSION['Usuario'];
             <!--conteudo principal-->
             <div id="principal" class="principal col-md-5 r">
 
-
-
                 <div class="modal fade" id="livrosAddModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Adicionar Livros</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Cadastrar Alunos</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Fechar"></button>
                             </div>
@@ -118,23 +118,34 @@ $logado = $_SESSION['Usuario'];
                                         <input type="text" name="nome" class="form-control" />
                                     </div>
                                     <div class="mb-3">
-                                        <label for="">Ano</label>
-                                        <input type="text" name="ano" class="form-control" />
+                                        <label for="">Ano/Turma</label>
+                                        <div>
+                                            <select id="ano_turma" name="ano_turma" class="form-control">
+                                                <option value="1A">1A</option>
+                                                <option value="1B">1B</option>
+                                                <option value="2A">2A</option>
+                                                <option value="2B">2B</option>
+                                                <option value="3A">3A</option>
+                                                <option value="3B">3B</option>
+                                            </select>
+                                        </div>
+
                                     </div>
                                     <div class="mb-3">
-                                        <label for="">curso</label>
-                                        <input type="text" name="curso" class="form-control" />
+                                    <label for="">Curso</label>
+                                        <div>
+                                            <select id="curso" name="curso" class="form-control">
+                                                <option value="Desenvolvimento de Sistemas" required>Desenvolvimento de Sistemas</option>
+                                                <option value="Eletrotécnica" required> Eletrotécnica</option>
+                                                <option value="Guia de Turismo"<?php echo ($curso == 'feminino') ? 'checked' : '';?> required>Guia de Turismo</option>
+                                            </select>
+                                        </div>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="">Ano do Livro</label>
-                                        <input type="number" name="turma" placeholder="Ex: 0000"
-                                            class="form-control" />
+                                        <label for="">email</label>
+                                        <input type="text" name="email" class="form-control" />
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="">Quantidades de Livro</label>
-                                        <input type="number" name="quantidade_livro" placeholder="Ex: 0000"
-                                            class="form-control" />
-                                    </div>
+
                                     <div class="mb-3">
                                         <label for="">Observação</label>
                                         <input type="text" name="observacao" class="form-control" />
@@ -160,7 +171,7 @@ $logado = $_SESSION['Usuario'];
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Editar Livro </h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Editar Aluno </h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Fechar"></button>
                             </div>
@@ -176,22 +187,33 @@ $logado = $_SESSION['Usuario'];
                                         <input type="text" name="nome" id="nome" class="form-control" />
                                     </div>
                                     <div class="mb-3">
-                                        <label for="">Ano</label>
-                                        <input type="text" name="ano" id="ano" class="form-control" />
+                                    <label for="">Ano/Turma</label>
+                                        <div>
+                                            <select id="ano_turma" name="ano_turma" class="form-control">
+                                                <option value="1A">1A</option>
+                                                <option value="1B">1B</option>
+                                                <option value="2A">2A</option>
+                                                <option value="2B">2B</option>
+                                                <option value="3A">3A</option>
+                                                <option value="3B">3B</option>
+                                            </select>
+                                        </div>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="">curso</label>
-                                        <input type="text" name="curso" id="curso" class="form-control" />
+                                    <label for="">Curso</label>
+                                        <div>
+                                            <select id="curso" name="curso" class="form-control"required>
+                                                <option value="Desenvolvimento de Sistemas"required>Desenvolvimento de Sistemas</option>
+                                                <option value="Eletrotécnica"<?php echo ($curso == 'Eletrotécnica') ? 'checked' : '';?>required> Eletrotécnica</option>
+                                                <option value="Guia de Turismo"required>Guia de Turismo</option>
+                                            </select>
+                                        </div>
                                     </div>
                                     <div class="mb-3">
-                                        <label for="">turma</label>
-                                        <input type="number" name="turma" id="turma" class="form-control" />
+                                        <label for="">email</label>
+                                        <input type="text" name="email" id="email" class="form-control" />
                                     </div>
-                                    <div class="mb-3">
-                                        <label for="">Quantidade do Livro</label>
-                                        <input type="number" name="quantidade_livro" id="quantidade_livro"
-                                            class="form-control" />
-                                    </div>
+
                                     <div class="mb-3">
                                         <label for="">Observacao</label>
                                         <input type="text" name="observacao" id="observacao" class="form-control" />
@@ -218,7 +240,7 @@ $logado = $_SESSION['Usuario'];
                     <div class="modal-dialog">
                         <div class="modal-content">
                             <div class="modal-header">
-                                <h5 class="modal-title" id="exampleModalLabel">Visualizar Livro</h5>
+                                <h5 class="modal-title" id="exampleModalLabel">Visualizar Aluno</h5>
                                 <button type="button" class="btn-close" data-bs-dismiss="modal"
                                     aria-label="Fechar"></button>
                             </div>
@@ -229,21 +251,18 @@ $logado = $_SESSION['Usuario'];
                                     <p id="view_nome" class="form-control"></p>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="">ano</label>
-                                    <p id="view_ano" class="form-control"></p>
+                                    <label for="">Ano/Turma</label>
+                                    <p id="view_ano_turma" class="form-control"></p>
                                 </div>
                                 <div class="mb-3">
                                     <label for="">curso</label>
                                     <p id="view_curso" class="form-control"></p>
                                 </div>
                                 <div class="mb-3">
-                                    <label for="">Ano do Livro</label>
-                                    <p id="view_turma" class="form-control"></p>
+                                    <label for="">Email</label>
+                                    <p id="view_email" class="form-control"></p>
                                 </div>
-                                <div class="mb-3">
-                                    <label for="">Quantidade do Livro</label>
-                                    <p id="view_quantidade_livro" class="form-control"></p>
-                                </div>
+
                                 <div class="mb-3">
                                     <label for="">Observacao</label>
                                     <p id="view_observacao" class="form-control"></p>
@@ -260,11 +279,11 @@ $logado = $_SESSION['Usuario'];
                     </div>
                 </div>
 
-                <div class="container mt-4">
-                    <h1 id="sistema">Controle/Cadastro de Alunos</h1>
+               
+                    <h1 class="titulo">Controle/Cadastro de Alunos</h1>
                     <div class="row">
                         <div class="col-md-12">
-                            <div class="card" style="whidth:100%;">
+                            <div class="card" style="whidth:100%; border-radius: 0;">
                                 <div class="card-header">
 
                                     <form action="">
@@ -273,18 +292,15 @@ $logado = $_SESSION['Usuario'];
                                                 echo $_GET['busca']; ?>" placeholder="Digite os termos de pesquisa"
                                                 type="text">
                                             <button type="submit" class="btn btn-primary">Pesquisar</button>
-                                            <button type="button" class="btn btn-primary float-end"
-                                                data-bs-toggle="modal" data-bs-target="#livrosAddModal"
-                                                style="margin-left: 68vh;">
-                                                Adicionar Livros
-                                            </button>
+                                            <div style="float: right; width: 100%; margin-right:1.5%">
+                                                <button type="button" class="btn btn-primary float-end"
+                                                    data-bs-toggle="modal" data-bs-target="#livrosAddModal"
+                                                    >
+                                                    Cadastrar Alunos
+                                                </button>
+                                            </div>
                                         </div>
                                     </form>
-
-
-
-
-
                                 </div>
                                 <div class="card-body">
 
@@ -292,11 +308,10 @@ $logado = $_SESSION['Usuario'];
                                         <thead>
                                             <tr>
                                                 <th>ID</th>
-                                                <th>Título</th>
-                                                <th>ano</th>
+                                                <th>Aluno</th>
+                                                <th>Ano/Turma</th>
                                                 <th>curso</th>
-                                                <th>Ano do Livro</th>
-                                                <th>Quantidade do Livro</th>
+                                                <th>Email</th>
                                                 <th>Observacao</th>
                                                 <th>Data do Cadastro</th>
                                                 <th>Ações</th>
@@ -314,7 +329,7 @@ $logado = $_SESSION['Usuario'];
 
                                                 require 'dbcon.php';
 
-                                                $query = "SELECT * FROM estudantes";
+                                                $query = "SELECT * FROM alunos";
                                                 $query_run = mysqli_query($con, $query);
 
                                                 if (mysqli_num_rows($query_run) > 0) {
@@ -328,17 +343,15 @@ $logado = $_SESSION['Usuario'];
                                                                 <?= $livros['nome'] ?>
                                                             </td>
                                                             <td>
-                                                                <?= $livros['ano'] ?>
+                                                                <?= $livros['ano_turma'] ?>
                                                             </td>
                                                             <td>
                                                                 <?= $livros['curso'] ?>
                                                             </td>
                                                             <td>
-                                                                <?= $livros['turma'] ?>
+                                                                <?= $livros['email'] ?>
                                                             </td>
-                                                            <td>
-                                                                <?= $livros['quantidade_livro'] ?>
-                                                            </td>
+
                                                             <td>
                                                                 <?= $livros['observacao'] ?>
                                                             </td>
@@ -379,12 +392,12 @@ $logado = $_SESSION['Usuario'];
                                                     }
                                                 }
                                                 ?>
-                                                <?php
+                                            <?php
                                             } else {
                                                 $pesquisa = $con->real_escape_string($_GET['busca']);
-                                                $sql_code = "SELECT * FROM estudantes WHERE id LIKE '%$pesquisa%' 
+                                                $sql_code = "SELECT * FROM alunos WHERE id LIKE '%$pesquisa%' 
                                                 OR nome LIKE '%$pesquisa%' 
-                                                OR ano LIKE '%$pesquisa%' OR curso LIKE '%$pesquisa%'";
+                                                OR ano_turma LIKE '%$pesquisa%' OR curso LIKE '%$pesquisa%'";
                                                 $sql_query = $con->query($sql_code) or die("ERRO ao consultar! " . $con->$error);
 
                                                 if ($sql_query->num_rows == 0) {
@@ -404,17 +417,15 @@ $logado = $_SESSION['Usuario'];
                                                                 <?= $livros['nome'] ?>
                                                             </td>
                                                             <td>
-                                                                <?= $livros['ano'] ?>
+                                                                <?= $livros['ano_turma'] ?>
                                                             </td>
                                                             <td>
                                                                 <?= $livros['curso'] ?>
                                                             </td>
                                                             <td>
-                                                                <?= $livros['turma'] ?>
+                                                                <?= $livros['email'] ?>
                                                             </td>
-                                                            <td>
-                                                                <?= $livros['quantidade_livro'] ?>
-                                                            </td>
+
                                                             <td>
                                                                 <?= $livros['observacao'] ?>
                                                             </td>
@@ -469,7 +480,7 @@ $logado = $_SESSION['Usuario'];
                             </div>
                         </div>
                     </div>
-                </div>
+                
 
             </div>
         </div>
@@ -480,13 +491,13 @@ $logado = $_SESSION['Usuario'];
             include_once('config.php');
 
             $nomeLivro = $_POST['nome'];
-            $anoLivro = $_POST['ano'];
+            $anoLivro = $_POST['ano_turma'];
             $cursoLivro = $_POST['curso'];
-            $anoLivro = $_POST['turma'];
+            $anoLivro = $_POST['email'];
             $observacaoLivro = $_POST['observacao'];
             $dataCadastroLivro = $_POST['data_cadastro'];
 
-            $result = mysqli_query($conexao, "INSERT INTO estudantes (nome,ano,curso,turma,observacao,data_cadastro) VALUES 
+            $result = mysqli_query($conexao, "INSERT INTO alunos (nome,ano_turma,curso,email,observacao,data_cadastro) VALUES 
       ('$nomeLivro','$anoLivro','$cursoLivro','$anoLivro','$observacaoLivro','$dataCadastroLivro')");
         }
 
@@ -509,7 +520,7 @@ $logado = $_SESSION['Usuario'];
 
             $.ajax({
                 type: "POST",
-                url: "code.php",
+                url: "codealuno.php",
                 data: formData,
                 processData: false,
                 contentType: false,
@@ -545,7 +556,7 @@ $logado = $_SESSION['Usuario'];
 
             $.ajax({
                 type: "GET",
-                url: "code.php?livros_id=" + livros_id,
+                url: "codealuno.php?livros_id=" + livros_id,
                 success: function (response) {
 
                     var res = jQuery.parseJSON(response);
@@ -556,10 +567,10 @@ $logado = $_SESSION['Usuario'];
 
                         $('#livros_id').val(res.data.id);
                         $('#nome').val(res.data.nome);
-                        $('#ano').val(res.data.ano);
+                        $('#ano_turma').val(res.data.ano_turma);
                         $('#curso').val(res.data.curso);
-                        $('#turma').val(res.data.turma);
-                        $('#quantidade_livro').val(res.data.quantidade_livro);
+                        $('#email').val(res.data.email);
+
                         $('#observacao').val(res.data.observacao);
                         $('#data_cadastro').val(res.data.data_cadastro);
 
@@ -579,7 +590,7 @@ $logado = $_SESSION['Usuario'];
 
             $.ajax({
                 type: "POST",
-                url: "code.php",
+                url: "codealuno.php",
                 data: formData,
                 processData: false,
                 contentType: false,
@@ -615,7 +626,7 @@ $logado = $_SESSION['Usuario'];
             var livros_id = $(this).val();
             $.ajax({
                 type: "GET",
-                url: "code.php?livros_id=" + livros_id,
+                url: "codealuno.php?livros_id=" + livros_id,
                 success: function (response) {
 
                     var res = jQuery.parseJSON(response);
@@ -625,10 +636,10 @@ $logado = $_SESSION['Usuario'];
                     } else if (res.status == 200) {
 
                         $('#view_nome').text(res.data.nome);
-                        $('#view_ano').text(res.data.ano);
+                        $('#view_ano_turma').text(res.data.ano);
                         $('#view_curso').text(res.data.curso);
-                        $('#view_turma').text(res.data.turma);
-                        $('#view_quantidade_livro').text(res.data.quantidade_livro);
+                        $('#view_email').text(res.data.email);
+
                         $('#view_observacao').text(res.data.observacao);
                         $('#view_data_cadastro').text(res.data.data_cadastro);
 
@@ -645,7 +656,7 @@ $logado = $_SESSION['Usuario'];
                 var livros_id = $(this).val();
                 $.ajax({
                     type: "POST",
-                    url: "code.php",
+                    url: "codealuno.php",
                     data: {
                         'delete_livros': true,
                         'livros_id': livros_id
