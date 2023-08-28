@@ -69,14 +69,17 @@ body {
     font-family: 'Catamaran', sans-serif;
     font-weight: bold;
     text-align: center;
-    background-color: #17A3BB;
-    margin-bottom: 20px;
-    color: #ffffff;
-    font-size: 47px;
+    width: 100%;
+    color: #b41111;
+    font-size: 30px;
+    margin-left: 26vh;
+}
+.w-25 {
+    width: 78%!important;
 }
 .card-body {
     overflow-y: scroll;
-    height: 75vh;
+    height: 85vh;
 }
 
 .card-header {

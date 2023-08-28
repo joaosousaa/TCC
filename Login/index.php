@@ -4,7 +4,7 @@
 session_start();
 
 if (isset($_POST['Usuario'], $_POST['Senha'])) {
-	if ($_POST['Usuario'] == 'joao' && $_POST['Senha'] == '2023') {
+	if ($_POST['Usuario'] == 'Joao' && $_POST['Senha'] == '2023') {
 		$_SESSION['Usuario'] = $_POST['Usuario'];
 		header('Location: ../home.php');
 	}
