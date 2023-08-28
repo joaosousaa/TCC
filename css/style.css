@@ -40,20 +40,25 @@ body {
     font-size: 25px;
 }
 
+.labelSair {
+    color: white;
+    margin-right: 1vh;
+}
+
 .sair:hover {
-    box-shadow: 11px 11px 30px rgba(0, 0, 0, 0.219);
-    transform: scale(1.05);
+    color: #468CC9;
+    transform: scale(1.30);
 }
 
 .sair {
-    border-radius: 5px;
+    border-radius: 20px;
     font-weight: bold;
     border: none;
-    color: white;
-    background-color: red;
+    color: rgb(0, 0, 0);
+    background-color: rgb(255, 255, 255);
     height: 35px;
-    width: 65px;
-    margin-right: 100px;
+    width: 35px;
+    margin-right: 60px;
 }
 
 .navpaginas {
@@ -72,66 +77,51 @@ body {
     text-decoration: none;
     color: #ffffff;
     font-size: 24px;
-    padding-bottom: 5px; /* Espaço para o sublinhado */
-    overflow: hidden; /* Para esconder o pseudo-elemento que sai da área */
+    padding-bottom: 5px;
+    overflow: hidden;
 }
 
 .animated-underline::after {
-    content: ""; 
+    content: "";
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 2px; /* Espessura do sublinhado */
-    
-    background-color: #27d4ff; /* Cor do sublinhado */
-    transform: scaleX(0); /* Começa sem sublinhado */
-    transform-origin: right; /* A animação começa da direita */
-    transition: transform 0.3s ease; /* Suavidade da animação */
+    height: 2px;
+    background-color: #ffffff;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
 }
-.animated-underline:hover{
-    color: #27d4ff;
+
+.animated-underline:hover {
+    font-weight: bolder;
 }
 
 .animated-underline:hover::after {
-    transform: scaleX(1); /* Estende o sublinhado para toda a largura no hover */
-    transform-origin: left; /* A animação termina na esquerda */
+    transform: scaleX(1);
+    transform-origin: left;
 }
+
 /*coluna navegação de páginas*/
 .logo {
-    height: 86px;
-    margin-top: 10px;
-    margin-left: 23px;
-    margin-bottom: 19vh;
+    height: 55px;
+    margin-top: 15px;
+    margin-left: 34px;
+}
+
+.logotext {
+    color: white;
+    margin-top: 3px;
+    font-weight: bolder;
+    margin-left: 44px;
+    font-size: 22px;
+    margin-bottom: 12vh;
 }
 
 .legenda {
     color: #ededed;
 }
-.toggle-button {
-    background-color: #ffffff00; /* Cor inicial do botão */
-    color: white;
-    border: none;
-    border-radius: 100px;
-    padding: 10px 20px;
-    height: 65px;
-    width: 65px;
-    cursor: pointer;
-    transition: transform 0.3s, background-color 0.3s; /* Transição para transformação e mudança de cor */
-    transform: scale(1); /* Tamanho inicial do botão */
-}
-
-    .toggle-button:hover{
-        color: #468CC9;
-        background-color: #ffffff; /* Nova cor ao passar o mouse */
-        transform: scale(1.1); /* O botão aumenta em 10% ao passar o mouse */
-    }
-.toggle-button.selected {
-    background-color: #ffffff;
-    color:#468CC9; ;
-}
-
-
 
 .btn-primary {
     --bs-btn-bg: #ffffff00;
@@ -158,8 +148,9 @@ body {
     width: 50px;
     margin-bottom: 30px;
 }
+
 .hover-animated-button {
-    background-color: #ffffff00; /* Cor inicial do botão */
+    background-color: #ffffff00;
     color: white;
     border: none;
     border-radius: 100px;
@@ -167,27 +158,26 @@ body {
     height: 65px;
     width: 65px;
     cursor: pointer;
-    transition: transform 0.3s, background-color 0.3s; /* Transição para transformação e mudança de cor */
-    transform: scale(1); /* Tamanho inicial do botão */
+    transition: transform 0.3s, background-color 0.3s;
+    transform: scale(1);
 }
 
 .hover-animated-button:hover {
     color: #468CC9;
-    background-color: #ffffff; /* Nova cor ao passar o mouse */
-    transform: scale(1.1); /* O botão aumenta em 10% ao passar o mouse */
+    background-color: #ffffff;
+    transform: scale(1.1);
 }
-
-
 
 /*conteudo principal da pagina*/
 .conteudoPrincipal {
     padding-top: 27px;
- width: 145vh;
+    width: 171vh;
     margin: auto;
 }
-.aimg{
-  height: 50%;
-  float: right;
+
+.aimg {
+    height: 50%;
+    float: right;
 }
 
 #titulo {
@@ -201,16 +191,6 @@ body {
     font-size: 47px;
 }
 
-.caixas {
-    border-radius: 0px 15px 15px 0px;
-    margin-right: 30px;
-    width: 439px;
-    box-shadow: 11px 11px 30px rgb(0 0 0 / 21%);
-    padding-left: 30px;
-    background-color: rgb(255, 255, 255);
-    height: 280px;
-}
-
 .cards {
     width: 91%;
     padding: 0px;
@@ -219,49 +199,52 @@ body {
 }
 
 .conteudo {
-    
     background-color: #ffffff;
     height: 90%;
     border-radius: 30px;
 }
 
-.lista {
-    border-radius: 15px 0px 0px 15px;
-    width: 20px;
-    margin: 0px;
-    padding: 0px;
+.caixas {
+    border-radius: 15px 15px 15px 15px;
+    margin-right: 30px;
+    width: 439px;
+    box-shadow: 11px 11px 30px rgb(0 0 0 / 21%);
+    padding-left: 30px;
+    background-color: rgb(255, 255, 255);
+    height: 300px;
 }
 
-.lista1 {
-    background-color: #699a9b;
-}
-.caixa1{
- height: 280px;
-}
-.lista2 {
-    background-color: rgb(207, 114, 114);
-}
-.caixa2{
-
-    width: 280px;
+.caixa1 {
+    height: 300px;
+    width: 539px;
+    background: linear-gradient(to bottom right, #2482ad, #ff81002e);
 }
 
-.lista3 {
-    background-color: #c1572f;
+.caixa2 {
+    width: 300px;
+    background-color: #ff81002e;
 }
-.caixa3{
-    height: 280px
+
+.pendeteMsg {
+    margin-right: 10px;
 }
-.lista4 {
-    background-color: #5459af;
+
+.caixa3 {
+    background: linear-gradient(to bottom right, #a1e9c8, #adb5bd);
+    height: 300px;
+    width: 539px;
 }
-.caixa4{
-    width: 280px;
+
+.caixa4 {
+    width: 300px;
+    background-color: #EAF0FC;
 }
+
 h4 {
+    font-size: 1.3rem;
     margin-top: 20px;
     font-weight: bold;
-    color: black;
+    color: rgb(255, 255, 255);
 }
 
 h5 {

@@ -4,20 +4,20 @@
   box-sizing: border-box;
   font-family: 'poppins', sans-serif;
 }
-
-
-
 .clock {
+  box-shadow: 11px 11px 30px rgb(0 0 0 / 21%);
   position: relative;
-  width: 280px;
-  height: 280px;
+  width: 254px;
+  height: 254px;
   margin-left: 30px;
   border-radius: 50%;
   display: flex;
+  background-color: #beedff;
+  margin-top: 12px;
   align-items: center;
   justify-content: center;
   text-align-last: center;
-  border: 2px solid black;
+  border: 2px solid #beedff;
 }
 
 .clock span {
