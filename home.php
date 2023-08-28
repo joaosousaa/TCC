@@ -32,27 +32,23 @@ $totalalunos = $row['total_rows'];
     </style>
     <link href="/website/css/uicons-outline-rounded.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="calendario/style.css">
     <link rel="stylesheet" href="relogio/style.css" />
-    <!-- Google Font Link for Icons -->
-    <link rel="stylesheet" href="calendario/app.css">
+    <link rel="stylesheet" href="calendario/style.css">
 </head>
 
 <body>
-    <!--<img src="img/fundo-biblioteca.avif" class="imgFundo" alt="">-->
-    <!--Cabeçario-->
     <!--Conteudo principal-->
     <main class="row">
         <!--Navegação-->
         <div class="col-md-2 navegacao">
 
-
-
-
             <div class="button-container">
-                <img src="img/logob(2).png" class="logo" alt="">
+                <img src="img/logo.png" class="logo" alt="">
+                <label for="" class="logotext">JBL</label>
+
                 <div class="mb-4 text-center">
-                    <button class="toggle-button navigateButton hover-animated-button" data-url="#"><svg
+                    <button class="toggle-button navigateButton hover-animated-button"
+                        style=" background-color: white; color:#468CC9;" data-url="#"><svg
                             xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                             class="bi bi-house-door-fill" viewBox="0 0 16 16">
                             <path
@@ -60,7 +56,6 @@ $totalalunos = $row['total_rows'];
                         </svg> </button>
                     <div class="legenda">Início</div>
                 </div>
-
 
                 <div class="mb-4 text-center">
                     <button class="toggle-button navigateButton hover-animated-button" data-url="#"><svg
@@ -71,6 +66,7 @@ $totalalunos = $row['total_rows'];
                         </svg></button>
                     <div class="legenda">Atríbuidos</div>
                 </div>
+
                 <div class="mb-4 text-center">
                     <button class="toggle-button navigateButton hover-animated-button" data-url="#"> <svg
                             xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
@@ -89,21 +85,13 @@ $totalalunos = $row['total_rows'];
                                 d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm1.354 4.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
                         </svg></button>
                     <div class="legenda">Entregues</div>
-
-
                 </div>
+
                 <img src="img/joao.jpg" alt=""
-                    style="  height: 50px; margin-top: 11vh; margin-left:40px; border-radius:10px;">
+                    style="  height: 50px; margin-top: 11vh; margin-left:34px; border-radius:10px;">
+
             </div>
-
-
-
-
-
-
         </div>
-
-
 
         <!--Conteudo principal-->
 
@@ -112,48 +100,65 @@ $totalalunos = $row['total_rows'];
             <header>
                 <nav class="navbar navbar-expand-lg ">
                     <div class="container-fluid">
-
                         <div class="collapse navbar-collapse" id="navbarNav">
-                            <h3 class="usuario"> Olá,
-                                <?php
-                                echo "$logado"
-                                    ?> !
+                            <h3 class="usuario"> <span style="font-size:23px;">Olá</span>,
+                                <?php echo "$logado" ?> !
                             </h3>
                             <div class="navpaginas">
                                 <a href="cadastrolivros.php" id="a1" class="animated-underline" style="">ACERVO</a>
                                 <a href="cadastroalunos.php" id="a2" class="animated-underline">ALUNOS</a>
-                                <a href="emprestimo.php" id="a3" class="animated-underline">EMPRESTIMO</a>
+                                <a href="emprestimo.php" id="a3" class="animated-underline">EMPRÉSTIMO</a>
                             </div>
                         </div>
 
-                        <a href="login/logout.php"><button class="sair" id="sair">Sair</button></a>
+                        <label for="" class="labelSair">Sair</label>
+                        <button class="sair navigateButton " id="sair" data-url="login/logout.php"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                            </svg></button>
+
                     </div>
                 </nav>
             </header>
+
             <div class="conteudo">
+                <div class="row conteudoPrincipal m " style="padding-top: 70px;">
 
-
-
-                <div class="row conteudoPrincipal m " style="
-
-    padding-top: 110px;
-">
-                    <div class="lista lista1"></div>
                     <div class="col-md-2 caixas caixa1">
-                        <img src="img/livros.png " style="height: 40%; margin-top: 22px;" alt="">
-                        <h4>Livros Cadastrado</h4>
-                        <h5>TOTAL: <span style="color:#669697; font-size: 30px;">
-                                <?php echo "$totalRows" ?>
-                            </span></h5>
+                        <div class="row">
+                            <div class="col-md-2" style="width: 44.666667%;">
+                                <h4>Livros Cadastrado</h4>
+                                <span style="color:white; font-size: 90px;">
+                                    <?php echo "$totalRows" ?>
+                                </span>
+                            </div>
+                            <div class="col-md-2" style="">
+                                <img src="img/luminaria.png" class="col" style="    height: 46%;
+                                margin-top: 68px;" alt="">
+                            </div>
+                        </div>
+                    </div>
 
-                    </div>
-                    <div class="lista lista2"></div>
                     <div class="col-md-2 caixas caixa2">
-                        <img src="img/alarme.png" style="height: 40%; margin-top: 16px; margin-bottom: 4px;" alt="">
-                        <h4 class="imgAlarme">Livros Pendentes</h4>
-                        <h5 class="imgAlarme">TOTAL: <label for="" style=" color: red;font-size: 30px;">2</label>
-                        </h5>
+                        <div class="row" style="height: 24vh;">
+                            <div class="row">
+                                <h4 class="imgAlarme" style="color: black; margin-top: 20px; ">Livros Pendentes</h4>
+                            </div>
+                            <div class="col-md-2" style="width: 50.666667%;">
+                                <span style="color: black;font-size: 90px;">2</span>
+                            </div>
+                            <div class="col-md-2">
+                                <img src="img/velocimetro.png" style="height: 35%; margin-top: 4vh; margin-bottom: 4px;"
+                                    alt="">
+                            </div>
+                        </div>
+                        <div class="row pendeteMsg">
+                            E-mails serão enviados para alunos que estão com livros pendentes.
+                        </div>
                     </div>
+
                     <div class="clock">
                         <div class="hour"></div>
                         <div class="min"></div>
@@ -174,85 +179,107 @@ $totalalunos = $row['total_rows'];
                 </div>
 
                 <div class="row conteudoPrincipal">
-                    <div class="lista lista3"></div>
+
                     <div class="col-md-2 caixas caixa4">
-                        <img src="img/lupa-livro.png" style="height: 40%; margin-top: 20px;" alt="">
-                        <h4>Livros Emprestados</h4>
-                        <h5>TOTAL: <label for="" style="color: #BD552E; font-size: 30px;">14</label></h5>
+                        <div class="row" style="height: 24vh;">
+                            <div class="row">
+                                <h4 class="imgAlarme" style="color: #F4B544; margin-top: 20px; ">Livros Pendentes</h4>
+                            </div>
+                            <div class="col-md-2" style="width: 31.666667%;">
+                                <span style="color: #F4B544;font-size: 90px;">20</span>
+                            </div>
+                            <div class="col-md-2">
+                                <img src="img/livroemprestado.png" style="height: 35%; 
+                                 margin-top: 7vh; margin-bottom: 4px;" alt="">
+                            </div>
+                        </div>
                     </div>
-                    <div class="lista lista4"></div>
+
                     <div class="col-md-2 caixas caixa3">
-                        <img src="img/leitor2.png" style="height: 40%; margin-top: 20px;" alt="">
-                        <h4>Estudantes Cadastrados</h4>
-                        <h5>TOTAL: <span style="color:#5156A9; font-size: 30px;">
-                                <?php echo "$totalalunos" ?>
-                            </span></h5>
+                        <div class="row" style="height: 11vh;">
+                            <div class="row">
+                                <h4 class="imgAlarme" style="color: #5156A9; margin-top: 20px; ">Alunos Cadastrados</h4>
+                            </div>
+                            <div class="col-md-2" style="width: 50.666667%;">
+                                <span style="color:#5156A9; font-size: 90px;">
+                                    <?php echo "$totalalunos" ?>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <img src="img/estudantes.png" style="height: 20vh; width: 31vh;
+                        margin-bottom: 4px; float: ringth; margin-left: 23vh; " alt="">
+                        </div>
                     </div>
+
                     <div class="calendar">
                         <div class="calendar-header">
-                            <span class="month-picker" id="month-picker">February</span>
-                            <div class="year-picker">
-                                <span class="year-change" id="prev-year">
-                                    <pre></pre>
+                            <span class="month-picker" id="month-picker"> May </span>
+                            <div class="year-picker" id="year-picker">
+                                <span class="year-change" id="pre-year">
+                                    <pre><</pre>
                                 </span>
-                                <span id="year">2021</span>
+                                <span id="year">2020 </span>
                                 <span class="year-change" id="next-year">
                                     <pre>></pre>
                                 </span>
                             </div>
                         </div>
+
                         <div class="calendar-body">
-                            <div class="calendar-week-day">
-                                <div>Sun</div>
-                                <div>Mon</div>
-                                <div>Tue</div>
-                                <div>Wed</div>
-                                <div>Thu</div>
-                                <div>Fri</div>
-                                <div>Sat</div>
+                            <div class="calendar-week-days">
+                                <div>D </div>
+                                <div>S </div>
+                                <div>T </div>
+                                <div>Q </div>
+                                <div>Q </div>
+                                <div>S </div>
+                                <div>S</div>
                             </div>
-                            <div class="calendar-days"></div>
+                            <div class="calendar-days">
+                            </div>
+                        </div>
+                        <div class="calendar-footer">
                         </div>
 
                         <div class="month-list"></div>
                     </div>
+
                 </div>
-
-
             </div>
         </div>
-
     </main>
+
     <script>document.querySelectorAll('.navigateButton').forEach(function (button) {
             button.addEventListener('click', function () {
                 // Obtém o URL do atributo 'data-url' do botão clicado
                 const url = this.getAttribute('data-url');
-
                 // Navega para o URL especificado
                 window.location.href = url;
             });
         });
         // Seleciona todos os botões
         const buttons = document.querySelectorAll('.toggle-button');
-
         buttons.forEach(button => {
             button.addEventListener('click', function () {
                 // Primeiro, remova a classe 'selected' de todos os botões
                 buttons.forEach(btn => {
                     btn.classList.remove('selected');
                 });
-
                 // Adicione a classe 'selected' ao botão clicado
                 this.classList.add('selected');
             });
         });
-
     </script>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
         crossorigin="anonymous"></script>
-    <script src="calendario/app.js"></script>
+
+    <script src="calendario/script.js"></script>
+
     <script src="relogio/script.js"></script>
+
 </body>
 
 </html>
