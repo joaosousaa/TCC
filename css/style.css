@@ -1,7 +1,9 @@
 * {
     margin: 0px;
     padding: 0px;
+    
 }
+  
 
 body {
     overflow: hidden;
@@ -28,19 +30,16 @@ body {
 }
 
 .usuario {
+    font-family: 'Saira Condensed', sans-serif;
     color: rgb(255, 255, 255);
     margin-left: 50px;
-    font-size: 20PX;
+    font-size: 25PX;
 }
 
-.startup {
-    font-weight: bolder;
-    margin-left: 50px;
-    color: rgb(255, 255, 255);
-    font-size: 25px;
-}
 
 .labelSair {
+    font-family: 'Saira Condensed', sans-serif;
+    font-size: 21px;
     color: white;
     margin-right: 1vh;
 }
@@ -51,6 +50,7 @@ body {
 }
 
 .sair {
+
     border-radius: 20px;
     font-weight: bold;
     border: none;
@@ -66,17 +66,18 @@ body {
 }
 
 .navpaginas>a {
+    letter-spacing: 3px;
+    font-family: 'Bebas Neue', sans-serif;
     margin-right: 10vh;
     text-decoration: none;
     color: white;
-    font-size: 19px;
+    font-size: 21px;
 }
 
 .animated-underline {
     position: relative;
     text-decoration: none;
     color: #ffffff;
-    font-size: 24px;
     padding-bottom: 5px;
     overflow: hidden;
 }
@@ -101,6 +102,7 @@ body {
 .animated-underline:hover::after {
     transform: scaleX(1);
     transform-origin: left;
+    
 }
 
 /*coluna navegação de páginas*/
@@ -111,16 +113,19 @@ body {
 }
 
 .logotext {
+    font-family: 'Saira Condensed', sans-serif;
     color: white;
     margin-top: 3px;
     font-weight: bolder;
-    margin-left: 44px;
+    margin-left: 50px;
     font-size: 22px;
     margin-bottom: 12vh;
 }
 
 .legenda {
+    font-size: 20px;
     color: #ededed;
+    font-family: 'Saira Condensed', sans-serif;
 }
 
 .btn-primary {
@@ -147,6 +152,11 @@ body {
     height: 50px;
     width: 50px;
     margin-bottom: 30px;
+}
+
+.clicado {
+    background-color: white;
+    color: #468CC9;
 }
 
 .hover-animated-button {
@@ -178,17 +188,6 @@ body {
 .aimg {
     height: 50%;
     float: right;
-}
-
-#titulo {
-    font-family: 'Catamaran', sans-serif;
-    border-radius: 6px;
-    font-weight: bold;
-    text-align: center;
-    margin-top: 10px;
-    margin-bottom: 20px;
-    color: #000000;
-    font-size: 47px;
 }
 
 .cards {
@@ -251,3 +250,4 @@ h5 {
     font-weight: bold;
     color: black;
 }
+
