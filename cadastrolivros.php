@@ -10,93 +10,104 @@ $logado = $_SESSION['Usuario'];
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cadastro de Livros</title>
+    <title>Biblioteca JBL</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <style>@import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100&display=swap');</style>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100&display=swap');
+    </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.9/css/boxicons.min.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
     <link rel="stylesheet" href="css/tabelas.css">
 </head>
-<!--cabeçario-->
 
 <body>
-    
-<header>
-        <nav class="navbar navbar-expand-lg bg-body-tertiary">
-            <div class="container-fluid">
-                <h3 class="startup">UPBOOK</h3>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <h3 class="usuario"><img src="img/usuario.png" alt=""
-                            style="width: 16px;height: 16px; margin-bottom:6px;">
-                        Usuário:
-                        <?php
-                        echo "$logado"
-                            ?>
-                    </h3>
+    <!--Conteudo principal-->
+    <main class="row">
+        <!--Navegação-->
+        <div class="col-md-2 navegacao">
+
+            <div class="button-container">
+                <img src="img/logo.png" class="logo" alt="">
+                <label for="" class="logotext">JBL</label>
+
+                <div class="mb-4 text-center">
+                    <button class="navigateButton hover-animated-button" data-url="home.php"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                            class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z" />
+                        </svg> </button>
+                    <div class="legenda">Início</div>
                 </div>
-                <a href="login/logout.php"><button class="sair" id="sair ">Sair</button></a>
-            </div>
-        </nav>
-    </header>
 
-
-    <main class="">
-
-        <div class="row">
-
-            <div class="col-md-2 navegacao ">
-                <div class="divbotoes">
-                    <img src="img/logob(2).png" class="logo" alt="">
-                    <a href="home.php"> <button type="button" class=" bntPag mx-3">Início <svg
-                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-house-door-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5Z" />
-                            </svg></button></a>
-                    <a href="cadastrolivros.php"><button type="button" class=" bntPag  mx-3">Acervo <svg
-                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-book-half" viewBox="0 0 16 16">
-                                <path
-                                    d="M8.5 2.687c.654-.689 1.782-.886 3.112-.752 1.234.124 2.503.523 3.388.893v9.923c-.918-.35-2.107-.692-3.287-.81-1.094-.111-2.278-.039-3.213.492V2.687zM8 1.783C7.015.936 5.587.81 4.287.94c-1.514.153-3.042.672-3.994 1.105A.5.5 0 0 0 0 2.5v11a.5.5 0 0 0 .707.455c.882-.4 2.303-.881 3.68-1.02 1.409-.142 2.59.087 3.223.877a.5.5 0 0 0 .78 0c.633-.79 1.814-1.019 3.222-.877 1.378.139 2.8.62 3.681 1.02A.5.5 0 0 0 16 13.5v-11a.5.5 0 0 0-.293-.455c-.952-.433-2.48-.952-3.994-1.105C10.413.809 8.985.936 8 1.783z" />
-                            </svg></button></a>
-                    <a href="cadastroalunos.php"><button type="button" class=" bntPag mx-3">Alunos <svg
-                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-people-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="M7 14s-1 0-1-1 1-4 5-4 5 3 5 4-1 1-1 1H7Zm4-6a3 3 0 1 0 0-6 3 3 0 0 0 0 6Zm-5.784 6A2.238 2.238 0 0 1 5 13c0-1.355.68-2.75 1.936-3.72A6.325 6.325 0 0 0 5 9c-4 0-5 3-5 4s1 1 1 1h4.216ZM4.5 8a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z" />
-                            </svg></button></a>
-                    <a href="emprestimo.php"><button type="button" class=" bntPag btn-info mx-3"><i
-                                class="fi fi-sr-home"></i> Empréstimo <svg xmlns="http://www.w3.org/2000/svg" width="16"
-                                height="16" fill="currentColor" class="bi bi-file-earmark-arrow-down-fill"
-                                viewBox="0 0 16 16">
-                                <path
-                                    d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm-1 4v3.793l1.146-1.147a.5.5 0 0 1 .708.708l-2 2a.5.5 0 0 1-.708 0l-2-2a.5.5 0 0 1 .708-.708L7.5 11.293V7.5a.5.5 0 0 1 1 0z" />
-                            </svg></button></a>
-                    <a href=""><button type="button" class=" bntPag mx-3">Atríbuidos <svg
-                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-hourglass-split" viewBox="0 0 16 16">
-                                <path
-                                    d="M2.5 15a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1h-11zm2-13v1c0 .537.12 1.045.337 1.5h6.326c.216-.455.337-.963.337-1.5V2h-7zm3 6.35c0 .701-.478 1.236-1.011 1.492A3.5 3.5 0 0 0 4.5 13s.866-1.299 3-1.48V8.35zm1 0v3.17c2.134.181 3 1.48 3 1.48a3.5 3.5 0 0 0-1.989-3.158C8.978 9.586 8.5 9.052 8.5 8.351z" />
-                            </svg></button></a>
-                    <a href=""><button type="button" class="bntPag  mx-3">Pendentes <svg
-                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-clock-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
-                            </svg></button></a>
-                    <a href=""><button type="button" class=" bntPag btn-info mx-3">Entregues <svg
-                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-file-earmark-check-fill" viewBox="0 0 16 16">
-                                <path
-                                    d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm1.354 4.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
-                            </svg></button></a>
+                <div class="mb-4 text-center">
+                    <button class="navigateButton hover-animated-button" data-url="#"><svg
+                            xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                            class="bi bi-hourglass-split" viewBox="0 0 16 16">
+                            <path
+                                d="M2.5 15a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1h-11zm2-13v1c0 .537.12 1.045.337 1.5h6.326c.216-.455.337-.963.337-1.5V2h-7zm3 6.35c0 .701-.478 1.236-1.011 1.492A3.5 3.5 0 0 0 4.5 13s.866-1.299 3-1.48V8.35zm1 0v3.17c2.134.181 3 1.48 3 1.48a3.5 3.5 0 0 0-1.989-3.158C8.978 9.586 8.5 9.052 8.5 8.351z" />
+                        </svg></button>
+                    <div class="legenda">Atríbuidos</div>
                 </div>
-            </div>
-            <!--conteudo principal-->
-            <div id="principal" class="principal col-md-5 r">
 
-        
+                <div class="mb-4 text-center">
+                    <button class="navigateButton hover-animated-button" data-url="#"> <svg
+                            xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                            class="bi bi-clock-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8 3.5a.5.5 0 0 0-1 0V9a.5.5 0 0 0 .252.434l3.5 2a.5.5 0 0 0 .496-.868L8 8.71V3.5z" />
+                        </svg></button>
+                    <div class="legenda">Pendentes</div>
+                </div>
+
+                <div class="mb-4 text-center">
+                    <button class="navigateButton hover-animated-button" data-url="#"> <svg
+                            xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                            class="bi bi-file-earmark-check-fill" viewBox="0 0 16 16">
+                            <path
+                                d="M9.293 0H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2V4.707A1 1 0 0 0 13.707 4L10 .293A1 1 0 0 0 9.293 0zM9.5 3.5v-2l3 3h-2a1 1 0 0 1-1-1zm1.354 4.354-3 3a.5.5 0 0 1-.708 0l-1.5-1.5a.5.5 0 1 1 .708-.708L7.5 9.793l2.646-2.647a.5.5 0 0 1 .708.708z" />
+                        </svg></button>
+                    <div class="legenda">Entregues</div>
+                </div>
+
+                <img src="img/joao.jpg" alt=""
+                    style="  height: 50px; margin-top: 11vh; margin-left:34px; border-radius:10px;">
+
+            </div>
+        </div>
+
+        <!--Conteudo principal-->
+        <div id="principal" class="col-md-2 cards">
+
+            <header>
+                <nav class="navbar navbar-expand-lg ">
+                    <div class="container-fluid">
+                        <div class="collapse navbar-collapse" id="navbarNav">
+                            <h3 class="usuario"> <span style="font-size:23px;">Olá</span>,
+                                <?php echo "$logado" ?> !
+                            </h3>
+                            <div class="navpaginas">
+                                <a href="cadastrolivros.php" id="a1" class="animated-underline"
+                                    style=" font-weight: bolder; font-size: 22px;  ">ACERVO</a>
+                                <a href="cadastroalunos.php" id="a2" class="animated-underline">ALUNOS</a>
+                                <a href="emprestimo.php" id="a3" class="animated-underline">EMPRÉSTIMO</a>
+                            </div>
+                        </div>
+
+                        <label for="" class="labelSair">Sair</label>
+                        <button class="sair navigateButton " id="sair" data-url="login/logout.php"><svg
+                                xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                                class="bi bi-chevron-right" viewBox="0 0 16 16">
+                                <path fill-rule="evenodd"
+                                    d="M4.646 1.646a.5.5 0 0 1 .708 0l6 6a.5.5 0 0 1 0 .708l-6 6a.5.5 0 0 1-.708-.708L10.293 8 4.646 2.354a.5.5 0 0 1 0-.708z" />
+                            </svg></button>
+
+                    </div>
+                </nav>
+            </header>
+
+            <div class="conteudo">
 
                 <div class="modal fade" id="livrosAddModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
@@ -260,223 +271,222 @@ $logado = $_SESSION['Usuario'];
                     </div>
                 </div>
 
-                
-               
-                   
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="card" style="whidth:100%; border-radius: 0;">
-                                <div class="card-header">
-                                    <form action="">
-                                 
-                                        <div class="box-search">
-                                            <input name="busca" class="form-control w-25" value="<?php if (isset($_GET['busca']))
-                                                echo $_GET['busca']; ?>" placeholder="Digite os termos de pesquisa"
-                                                type="text">
-                                            <button type="submit" class="btn btn-primary">Pesquisar</button>
-                                            <h1 class="titulo">Controle de Livros</h1>
-                                            <div style="float: right; width: 100%; margin-right:1.5%">
-                                                <button type="button" class="btn btn-primary float-end"
-                                                    data-bs-toggle="modal" data-bs-target="#livrosAddModal"
-                                                    >
-                                                    Adicionar Livros
-                                                </button>
-                                            </div>
+
+
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="card" style="whidth:100%; border-radius: 30px;">
+                            <div class="card-header">
+                                <form action="">
+
+                                    <div class="box-search">
+                                        <input name="busca" class="form-control w-25" value="<?php if (isset($_GET['busca']))
+                                            echo $_GET['busca']; ?>" placeholder="Digite os termos de pesquisa"
+                                            type="text">
+                                        <button type="submit" class="btn btn-primary">Pesquisar</button>
+                                        <h1 class="tituloo">Controle de Livros</h1>
+                                        <div style="float: right; width: 100%; margin-right:1.5%">
+                                            <button type="button" class="btn btn-primary float-end"
+                                                data-bs-toggle="modal" data-bs-target="#livrosAddModal" style=" height: 44px;">
+                                                Adicionar Livros
+                                            </button>
                                         </div>
-                                    </form>
+                                    </div>
+                                </form>
 
 
 
 
 
-                                </div>
-                                <div class="card-body">
+                            </div>
+                            <div class="card-body">
 
-                                    <table id="myTable" class="table table-bordered table-striped">
-                                        <thead>
-                                            <tr>
-                                                <th>ID</th>
-                                                <th>Título</th>
-                                                <th>Autor</th>
-                                                <th>Editor</th>
-                                                <th>Ano do Livro</th>
-                                                <th>Quantidade do Livro</th>
-                                                <th>Observacao</th>
-                                                <th>Data do Cadastro</th>
-                                                <th>Ações</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <?php
+                                <table id="myTable" class="table table-bordered table-striped">
+                                    <thead>
+                                        <tr>
+                                            <th>ID</th>
+                                            <th>Título</th>
+                                            <th>Autor</th>
+                                            <th>Editor</th>
+                                            <th>Ano do Livro</th>
+                                            <th>Quantidade do Livro</th>
+                                            <th>Observacao</th>
+                                            <th>Data do Cadastro</th>
+                                            <th>Ações</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        require 'dbcon.php';
+
+
+
+
+
+                                        if (!isset($_GET['busca'])) {
+
                                             require 'dbcon.php';
 
+                                            $query = "SELECT * FROM cadastrolivros";
+                                            $query_run = mysqli_query($con, $query);
 
-
-
-
-                                            if (!isset($_GET['busca'])) {
-
-                                                require 'dbcon.php';
-
-                                                $query = "SELECT * FROM cadastrolivros";
-                                                $query_run = mysqli_query($con, $query);
-
-                                                if (mysqli_num_rows($query_run) > 0) {
-                                                    foreach ($query_run as $livros) {
-                                                        ?>
-                                                        <tr>
-                                                            <td>
-                                                                <?= $livros['id'] ?>
-                                                            </td>
-                                                            <td>
-                                                                <?= $livros['titulo'] ?>
-                                                            </td>
-                                                            <td>
-                                                                <?= $livros['autor'] ?>
-                                                            </td>
-                                                            <td>
-                                                                <?= $livros['editor'] ?>
-                                                            </td>
-                                                            <td>
-                                                                <?= $livros['ano_livro'] ?>
-                                                            </td>
-                                                            <td>
-                                                                <?= $livros['quantidade_livro'] ?>
-                                                            </td>
-                                                            <td>
-                                                                <?= $livros['observacao'] ?>
-                                                            </td>
-                                                            <td>
-                                                                <?= $livros['data_cadastro'] ?>
-                                                            </td>
-                                                            <td>
-                                                                <button type="button" value="<?= $livros['id']; ?>"
-                                                                    class="viewLivrosBtn btn btn-info btn-sm"><svg
-                                                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                                        fill="white" class="bi bi-arrows-angle-expand"
-                                                                        viewBox="0 0 16 16">
-                                                                        <path fill-rule="evenodd"
-                                                                            d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707zm4.344-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707z" />
-                                                                    </svg></button>
-
-                                                                <button type="button" value="<?= $livros['id']; ?>"
-                                                                    class="editLivrosBtn btn btn-success btn-sm"><svg
-                                                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                                        fill="currentColor" class="bi bi-pencil"
-                                                                        viewBox="0 0 16 16">
-                                                                        <path
-                                                                            d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
-                                                                    </svg></button>
-
-                                                                <button type="button" value="<?= $livros['id']; ?>"
-                                                                    class="deleteLivrosBtn btn btn-danger btn-sm"><svg
-                                                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                                        fill="currentColor" class="bi bi-trash-fill"
-                                                                        viewBox="0 0 16 16">
-                                                                        <path
-                                                                            d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
-                                                                    </svg></button>
-
-                                                            </td>
-                                                        </tr>
-                                                        <?php
-                                                    }
-                                                }
-                                                ?>
-                                                <?php
-                                            } else {
-                                                $pesquisa = $con->real_escape_string($_GET['busca']);
-                                                $sql_code = "SELECT * FROM cadastrolivros WHERE id LIKE '%$pesquisa%' 
-                                                OR titulo LIKE '%$pesquisa%' 
-                                                OR autor LIKE '%$pesquisa%' OR editor LIKE '%$pesquisa%'";
-                                                $sql_query = $con->query($sql_code) or die("ERRO ao consultar! " . $con->$error);
-
-                                                if ($sql_query->num_rows == 0) {
+                                            if (mysqli_num_rows($query_run) > 0) {
+                                                foreach ($query_run as $livros) {
                                                     ?>
                                                     <tr>
-                                                        <td colspan="3">Nenhum resultado encontrado...</td>
+                                                        <td>
+                                                            <?= $livros['id'] ?>
+                                                        </td>
+                                                        <td>
+                                                            <?= $livros['titulo'] ?>
+                                                        </td>
+                                                        <td>
+                                                            <?= $livros['autor'] ?>
+                                                        </td>
+                                                        <td>
+                                                            <?= $livros['editor'] ?>
+                                                        </td>
+                                                        <td>
+                                                            <?= $livros['ano_livro'] ?>
+                                                        </td>
+                                                        <td>
+                                                            <?= $livros['quantidade_livro'] ?>
+                                                        </td>
+                                                        <td>
+                                                            <?= $livros['observacao'] ?>
+                                                        </td>
+                                                        <td>
+                                                            <?= $livros['data_cadastro'] ?>
+                                                        </td>
+                                                        <td>
+                                                            <button type="button" value="<?= $livros['id']; ?>"
+                                                                class="viewLivrosBtn btn btn-info btn-sm"><svg
+                                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                                    fill="white" class="bi bi-arrows-angle-expand"
+                                                                    viewBox="0 0 16 16">
+                                                                    <path fill-rule="evenodd"
+                                                                        d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707zm4.344-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707z" />
+                                                                </svg></button>
+
+                                                            <button type="button" value="<?= $livros['id']; ?>"
+                                                                class="editLivrosBtn btn btn-success btn-sm"><svg
+                                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                                    fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                                                                    <path
+                                                                        d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+                                                                </svg></button>
+
+                                                            <button type="button" value="<?= $livros['id']; ?>"
+                                                                class="deleteLivrosBtn btn btn-danger btn-sm"><svg
+                                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                                    fill="currentColor" class="bi bi-trash-fill"
+                                                                    viewBox="0 0 16 16">
+                                                                    <path
+                                                                        d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
+                                                                </svg></button>
+
+                                                        </td>
                                                     </tr>
                                                     <?php
-                                                } else {
-                                                    while ($livros = $sql_query->fetch_assoc()) {
-                                                        ?>
-                                                        <tr>
-                                                            <td>
-                                                                <?= $livros['id'] ?>
-                                                            </td>
-                                                            <td>
-                                                                <?= $livros['titulo'] ?>
-                                                            </td>
-                                                            <td>
-                                                                <?= $livros['autor'] ?>
-                                                            </td>
-                                                            <td>
-                                                                <?= $livros['editor'] ?>
-                                                            </td>
-                                                            <td>
-                                                                <?= $livros['ano_livro'] ?>
-                                                            </td>
-                                                            <td>
-                                                                <?= $livros['quantidade_livro'] ?>
-                                                            </td>
-                                                            <td>
-                                                                <?= $livros['observacao'] ?>
-                                                            </td>
-                                                            <td>
-                                                                <?= $livros['data_cadastro'] ?>
-                                                            </td>
-                                                            <td>
-                                                                <button type="button" value="<?= $livros['id']; ?>"
-                                                                    class="viewLivrosBtn btn btn-info btn-sm"><svg
-                                                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                                        fill="white" class="bi bi-arrows-angle-expand"
-                                                                        viewBox="0 0 16 16">
-                                                                        <path fill-rule="evenodd"
-                                                                            d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707zm4.344-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707z" />
-                                                                    </svg></button>
-
-                                                                <button type="button" value="<?= $livros['id']; ?>"
-                                                                    class="editLivrosBtn btn btn-success btn-sm"><svg
-                                                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                                        fill="currentColor" class="bi bi-pencil"
-                                                                        viewBox="0 0 16 16">
-                                                                        <path
-                                                                            d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
-                                                                    </svg></button>
-
-                                                                <button type="button" value="<?= $livros['id']; ?>"
-                                                                    class="deleteLivrosBtn btn btn-danger btn-sm"><svg
-                                                                        xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                                        fill="currentColor" class="bi bi-trash-fill"
-                                                                        viewBox="0 0 16 16">
-                                                                        <path
-                                                                            d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
-                                                                    </svg></button>
-
-                                                            </td>
-                                                        </tr>
-
-
-                                                        <?php
-                                                    }
                                                 }
+                                            }
+                                            ?>
+                                            <?php
+                                        } else {
+                                            $pesquisa = $con->real_escape_string($_GET['busca']);
+                                            $sql_code = "SELECT * FROM cadastrolivros WHERE id LIKE '%$pesquisa%' 
+                                                OR titulo LIKE '%$pesquisa%' 
+                                                OR autor LIKE '%$pesquisa%' OR editor LIKE '%$pesquisa%'";
+                                            $sql_query = $con->query($sql_code) or die("ERRO ao consultar! " . $con->$error);
+
+                                            if ($sql_query->num_rows == 0) {
+                                                ?>
+                                                <tr>
+                                                    <td colspan="3">Nenhum resultado encontrado...</td>
+                                                </tr>
+                                                <?php
+                                            } else {
+                                                while ($livros = $sql_query->fetch_assoc()) {
+                                                    ?>
+                                                    <tr>
+                                                        <td>
+                                                            <?= $livros['id'] ?>
+                                                        </td>
+                                                        <td>
+                                                            <?= $livros['titulo'] ?>
+                                                        </td>
+                                                        <td>
+                                                            <?= $livros['autor'] ?>
+                                                        </td>
+                                                        <td>
+                                                            <?= $livros['editor'] ?>
+                                                        </td>
+                                                        <td>
+                                                            <?= $livros['ano_livro'] ?>
+                                                        </td>
+                                                        <td>
+                                                            <?= $livros['quantidade_livro'] ?>
+                                                        </td>
+                                                        <td>
+                                                            <?= $livros['observacao'] ?>
+                                                        </td>
+                                                        <td>
+                                                            <?= $livros['data_cadastro'] ?>
+                                                        </td>
+                                                        <td>
+                                                            <button type="button" value="<?= $livros['id']; ?>"
+                                                                class="viewLivrosBtn btn btn-info btn-sm"><svg
+                                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                                    fill="white" class="bi bi-arrows-angle-expand"
+                                                                    viewBox="0 0 16 16">
+                                                                    <path fill-rule="evenodd"
+                                                                        d="M5.828 10.172a.5.5 0 0 0-.707 0l-4.096 4.096V11.5a.5.5 0 0 0-1 0v3.975a.5.5 0 0 0 .5.5H4.5a.5.5 0 0 0 0-1H1.732l4.096-4.096a.5.5 0 0 0 0-.707zm4.344-4.344a.5.5 0 0 0 .707 0l4.096-4.096V4.5a.5.5 0 1 0 1 0V.525a.5.5 0 0 0-.5-.5H11.5a.5.5 0 0 0 0 1h2.768l-4.096 4.096a.5.5 0 0 0 0 .707z" />
+                                                                </svg></button>
+
+                                                            <button type="button" value="<?= $livros['id']; ?>"
+                                                                class="editLivrosBtn btn btn-success btn-sm"><svg
+                                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                                    fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                                                                    <path
+                                                                        d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+                                                                </svg></button>
+
+                                                            <button type="button" value="<?= $livros['id']; ?>"
+                                                                class="deleteLivrosBtn btn btn-danger btn-sm"><svg
+                                                                    xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                                    fill="currentColor" class="bi bi-trash-fill"
+                                                                    viewBox="0 0 16 16">
+                                                                    <path
+                                                                        d="M2.5 1a1 1 0 0 0-1 1v1a1 1 0 0 0 1 1H3v9a2 2 0 0 0 2 2h6a2 2 0 0 0 2-2V4h.5a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H10a1 1 0 0 0-1-1H7a1 1 0 0 0-1 1H2.5zm3 4a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 .5-.5zM8 5a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-1 0v-7A.5.5 0 0 1 8 5zm3 .5v7a.5.5 0 0 1-1 0v-7a.5.5 0 0 1 1 0z" />
+                                                                </svg></button>
+
+                                                        </td>
+                                                    </tr>
 
 
+                                                    <?php
+                                                }
                                             }
 
-                                            ?>
 
-                                        </tbody>
-                                    </table>
+                                        }
 
-                                </div>
+                                        ?>
+
+                                    </tbody>
+                                </table>
+
                             </div>
                         </div>
                     </div>
-               
+                </div>
+
+
 
             </div>
         </div>
+
         <?php
         if (isset($_POST['submit'])) {
 
@@ -495,10 +505,7 @@ $logado = $_SESSION['Usuario'];
         }
 
         ?>
-
-
     </main>
-
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -672,6 +679,36 @@ $logado = $_SESSION['Usuario'];
         });
 
     </script>
+    <script>document.querySelectorAll('.navigateButton').forEach(function (button) {
+            button.addEventListener('click', function () {
+                // Obtém o URL do atributo 'data-url' do botão clicado
+                const url = this.getAttribute('data-url');
+                // Navega para o URL especificado
+                window.location.href = url;
+            });
+        });
+        // Seleciona todos os botões
+        const buttons = document.querySelectorAll('.toggle-button');
+        buttons.forEach(button => {
+            button.addEventListener('click', function () {
+                // Primeiro, remova a classe 'selected' de todos os botões
+                buttons.forEach(btn => {
+                    btn.classList.remove('selected');
+                });
+                // Adicione a classe 'selected' ao botão clicado
+                this.classList.add('selected');
+            });
+        });
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+
+    <script src="calendario/script.js"></script>
+
+    <script src="relogio/script.js"></script>
+
 </body>
 
 </html>

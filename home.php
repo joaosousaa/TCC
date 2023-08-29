@@ -24,16 +24,17 @@ $totalalunos = $row['total_rows'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca JBL</title>
-    <link rel="shortcut icon" href="img/logob-removebg-preview (1).png" type="image/x-icon">
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Catamaran:wght@100&display=swap');
-    </style>
-    <link href="/website/css/uicons-outline-rounded.css" rel="stylesheet">
+
     <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="relogio/style.css" />
     <link rel="stylesheet" href="calendario/style.css">
+
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@100&family=Saira+Condensed:wght@100&display=swap"
+        rel="stylesheet">
 </head>
 
 <body>
@@ -47,8 +48,8 @@ $totalalunos = $row['total_rows'];
                 <label for="" class="logotext">JBL</label>
 
                 <div class="mb-4 text-center">
-                    <button class="toggle-button navigateButton hover-animated-button"
-                        style=" background-color: white; color:#468CC9;" data-url="#"><svg
+                    <button class="navigateButton hover-animated-button"
+                        style=" background-color: white; color:#468CC9;" data-url="home.php"><svg
                             xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                             class="bi bi-house-door-fill" viewBox="0 0 16 16">
                             <path
@@ -58,7 +59,7 @@ $totalalunos = $row['total_rows'];
                 </div>
 
                 <div class="mb-4 text-center">
-                    <button class="toggle-button navigateButton hover-animated-button" data-url="#"><svg
+                    <button class="navigateButton hover-animated-button" data-url="#"><svg
                             xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                             class="bi bi-hourglass-split" viewBox="0 0 16 16">
                             <path
@@ -68,7 +69,7 @@ $totalalunos = $row['total_rows'];
                 </div>
 
                 <div class="mb-4 text-center">
-                    <button class="toggle-button navigateButton hover-animated-button" data-url="#"> <svg
+                    <button class="navigateButton hover-animated-button" data-url="#"> <svg
                             xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                             class="bi bi-clock-fill" viewBox="0 0 16 16">
                             <path
@@ -78,7 +79,7 @@ $totalalunos = $row['total_rows'];
                 </div>
 
                 <div class="mb-4 text-center">
-                    <button class="toggle-button navigateButton hover-animated-button" data-url="#"><svg
+                    <button class="navigateButton hover-animated-button" data-url="#"><svg
                             xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
                             class="bi bi-file-earmark-check-fill" viewBox="0 0 16 16">
                             <path
@@ -101,7 +102,8 @@ $totalalunos = $row['total_rows'];
                 <nav class="navbar navbar-expand-lg ">
                     <div class="container-fluid">
                         <div class="collapse navbar-collapse" id="navbarNav">
-                            <h3 class="usuario"> <span style="font-size:23px;">Olá</span>,
+                            <h3 class="usuario"> <span
+                                    style="font-size:30px; font-family: 'Saira Condensed', sans-serif;">Olá</span>,
                                 <?php echo "$logado" ?> !
                             </h3>
                             <div class="navpaginas">
