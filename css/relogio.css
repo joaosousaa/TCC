@@ -7,13 +7,13 @@
 .clock {
   box-shadow: 11px 11px 30px rgb(0 0 0 / 21%);
   position: relative;
-  width: 254px;
-  height: 254px;
-  margin-left: 30px;
+  width: 220px;
+  height: 220px;
+  margin-top: 13px;
+  margin-left: 10px;
   border-radius: 50%;
   display: flex;
   background-color: #beedff;
-  margin-top: 12px;
   align-items: center;
   justify-content: center;
   text-align-last: center;

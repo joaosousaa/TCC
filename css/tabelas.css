@@ -5,7 +5,7 @@
 
 body {
     overflow: hidden;
-    background: linear-gradient(to bottom right, #30708d, #7dacbd);
+    background: linear-gradient(to bottom right, #1d87c5, #902f9b);
 }
 
 .imgFundo {
@@ -28,19 +28,15 @@ body {
 }
 
 .usuario {
+    font-family: 'Saira Condensed', sans-serif;
     color: rgb(255, 255, 255);
     margin-left: 50px;
-    font-size: 20PX;
-}
-
-.startup {
-    font-weight: bolder;
-    margin-left: 50px;
-    color: rgb(255, 255, 255);
-    font-size: 25px;
+    font-size: 21px;
 }
 
 .labelSair {
+    font-family: 'Saira Condensed', sans-serif;
+    font-size: 18px;
     color: white;
     margin-right: 1vh;
 }
@@ -56,8 +52,8 @@ body {
     border: none;
     color: rgb(0, 0, 0);
     background-color: rgb(255, 255, 255);
-    height: 35px;
-    width: 35px;
+    height: 30px;
+    width: 30px;
     margin-right: 60px;
 }
 
@@ -66,10 +62,12 @@ body {
 }
 
 .navpaginas>a {
+    letter-spacing: 3px;
+    font-family: 'Bebas Neue', sans-serif;
     margin-right: 10vh;
     text-decoration: none;
     color: white;
-    font-size: 19px;
+    font-size: 20px;
 }
 
 .animated-underline {
@@ -105,22 +103,24 @@ body {
 
 /*coluna navegação de páginas*/
 .logo {
-    height: 55px;
-    margin-top: 15px;
-    margin-left: 34px;
+    height: 82px;
+    margin-top: 3px;
+    margin-left: 17px;
 }
 
 .logotext {
+    font-family: 'Saira Condensed', sans-serif;
     color: white;
-    margin-top: 3px;
-    font-weight: bolder;
-    margin-left: 44px;
-    font-size: 22px;
-    margin-bottom: 12vh;
+    margin-top: -5px;
+    margin-left: 27px;
+    font-size: 20px;
+    margin-bottom: 5vh;
 }
 
 .legenda {
+    font-size: 15px;
     color: #ededed;
+    font-family: 'Saira Condensed', sans-serif;
 }
 
 
@@ -156,9 +156,8 @@ body {
     color: white;
     border: none;
     border-radius: 100px;
-    padding: 10px 20px;
-    height: 65px;
-    width: 65px;
+    height: 50px;
+    width: 50px;
     cursor: pointer;
     transition: transform 0.3s, background-color 0.3s;
     transform: scale(1);
@@ -183,7 +182,7 @@ body {
 }
 
 .cards {
-    width: 91%;
+    width: 88%;
     padding: 0px;
     margin: 0px;
 
@@ -191,7 +190,7 @@ body {
 
 .conteudo {
     background-color: #ffffff;
-    height: 90%;
+    height: 87%;
     border-radius: 30px;
 }
 
@@ -257,20 +256,19 @@ h5 {
     width: 100%;
 }
 .tituloo {
-    font-family: 'Catamaran', sans-serif;
+    font-family: 'Saira Condensed', sans-serif;
     font-weight: bold;
     text-align: center;
     width: 100%;
     color: #000000;
     font-size: 30px;
-    margin-left: 26vh;
 }
 .w-25 {
     width: 80%!important;
 }
 .card-body {
     overflow-y: scroll;
-    height: 83.6vh;
+    height: 77.6vh;
     
 }
 

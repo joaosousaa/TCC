@@ -2,8 +2,6 @@
 
 require 'dbcon.php';
 
-
-
 if(isset($_POST['save_livros']))
 {
     $nome = mysqli_real_escape_string($con, $_POST['nome']);
