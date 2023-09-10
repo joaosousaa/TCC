@@ -20,10 +20,9 @@ if (isset($_GET['erro'])) {
 <html lang="pt-br">
 <head>
 	<title>Login</title>
+	<link rel="shortcut icon" href="../img/logob-removebg-preview (1).png" type="image/x-icon">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-
-	<link rel="icon" type="image/png" href="images/icons/favicon.ico" />
 
 	<link rel="stylesheet" type="text/css" href="vendor/bootstrap/css/bootstrap.min.css">
 
@@ -43,7 +42,7 @@ if (isset($_GET['erro'])) {
 <body>
 
 	<div class="limiter">
-		<div style="background-color:coral;margin:10px;">
+		<div style="background-color:coral;">
 			<?php echo $erro ?? '' ?>
 		</div>
 		<div class="container-login100">
@@ -51,17 +50,17 @@ if (isset($_GET['erro'])) {
 			<div class="wrap-login100">
 
 				<div class="login100-pic js-tilt" data-tilt>
-					<img src="../img/logob(2).png" alt="IMG">
+					<img src="../img/logo3.png" alt="IMG">
 
 				</div>
 
 				<form action="" method="post" class="login100-form validate-form">
 					<span class="login100-form-title">
-						Sign in
+						LOGIN
 					</span>
 
 					<div class="wrap-input100 validate-input" data-validate="Valid email is required: ex@abc.xyz">
-						<input class="input100" type="text" name="Usuario" placeholder="Name">
+						<input class="input100" type="text" name="Usuario" placeholder="Nome">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-envelope" aria-hidden="true"></i>
@@ -69,7 +68,7 @@ if (isset($_GET['erro'])) {
 					</div>
 
 					<div class="wrap-input100 validate-input" data-validate="Password is required">
-						<input class="input100" type="password" name="Senha" placeholder="Password">
+						<input class="input100" type="password" name="Senha" placeholder="Senha">
 						<span class="focus-input100"></span>
 						<span class="symbol-input100">
 							<i class="fa fa-lock" aria-hidden="true"></i>
@@ -78,7 +77,7 @@ if (isset($_GET['erro'])) {
 
 					<div class="container-login100-form-btn">
 						<button type="submit" name="login" class="login100-form-btn">
-							Login
+							Entrar
 						</button>
 					</div>
 
