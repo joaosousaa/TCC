@@ -69,7 +69,7 @@ async function listar_aluno(nome) {
 
             // Criar o item da lista
             //aluno += "<a href='visualizar.php?id=" + resposta['dados'][i]['id'] + "'>" + resposta['dados'][i]['nome'] + "</a><br><br>";
-            aluno += "<a href='#'>" + resposta['dados'][i]['nome'] + "</a><br><br>";
+            aluno += "<a href='#'>" + resposta['dados'][i]['nome'] [i]['curso'] + "</a><br><br>";
         }
     } else {
         // Retorna a mensagem de erro quando não encontrar nenhum registro no banco de dados
@@ -77,7 +77,7 @@ async function listar_aluno(nome) {
     }
 
     // Retornar o conteúdo para a página HTML no SELETOR resultado_pesquisa
-   
+
 }
 
 // Receber o seletor pesq-aluno-form da tag <form></form>
