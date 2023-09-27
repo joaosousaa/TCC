@@ -150,7 +150,7 @@ $totalalunos = $row['total_rows'];
                                 <h4 class="imgAlarme" style="color: black; margin-top: 20px; ">Livros Pendentes</h4>
                             </div>
                             <div class="col-md-2" style="width: 50.666667%;">
-                                <span style="color: black;font-size: 90px;">2</span>
+                                <span style="color: black;font-size: 90px;">0</span>
                             </div>
                             <div class="col-md-2">
                                 <img src="img/velocimetro.png" style="height: 35%; margin-top: 4vh; margin-bottom: 4px;"
@@ -189,7 +189,7 @@ $totalalunos = $row['total_rows'];
                                 <h4 class="imgAlarme" style="color: #F4B544; margin-top: 20px; ">Livros Emprestados</h4>
                             </div>
                             <div class="col-md-2" style="width: 47.666667%;">
-                                <span style="color: #F4B544;font-size: 90px;">20</span>
+                                <span style="color: #F4B544;font-size: 90px;">0</span>
                             </div>
                             <div class="col-md-2">
                                 <img src="img/livroemprestado.png" style="height: 25%; margin-top: 8vh;

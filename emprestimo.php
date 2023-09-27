@@ -1,4 +1,15 @@
 <?php
+if(isset($_POST['submit'])){
+include_once('dbcon.php');
+
+$aluno =$_POST ['aluno'];
+$livro =$_POST ['livro'];
+$data_emprestimo =$_POST ['data_emprestimo'];
+$data_devolucao =$_POST ['data_devolucao'];
+
+$result = mysqli_query($con, "INSERT INTO emprestimo(aluno,livro,data_emprestimo,data_devolucao) VALUES ('$aluno','$livro','$data_emprestimo','$data_devolucao')");
+};
+
 include('login/verificarlogin.php');
 $logado = $_SESSION['Usuario'];
 ?>
@@ -119,7 +130,7 @@ $logado = $_SESSION['Usuario'];
                     <div class="divFormulario">
                         <h1 class="tituloFormulario">Empréstimo de Livros</h1>
 
-                        <form action="emprestimo.php" id="pesq-produto-form" method="POST " class="formLivro">
+                        <form action="emprestimo.php" method="POST" class="formLivro">
 
                             <div class="col-12 mb-3">
                                 <label for="nome">Aluno:</label>
