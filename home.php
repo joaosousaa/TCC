@@ -14,6 +14,11 @@ $result = mysqli_query($con, $query);
 $row = mysqli_fetch_assoc($result);
 $totalalunos = $row['total_rows'];
 
+$query = "SELECT COUNT(*) as total_rows FROM emprestimo";
+
+$result = mysqli_query($con, $query);
+$row = mysqli_fetch_assoc($result);
+$totalemprestado = $row['total_rows'];
 ?>
 
 <!DOCTYPE html>
@@ -60,7 +65,7 @@ $totalalunos = $row['total_rows'];
                 </div>
 
                 <div class="mb-4 text-center">
-                    <button class="navigateButton hover-animated-button" data-url="#"><svg
+                    <button class="navigateButton hover-animated-button" data-url="atribuidos.php"><svg
                             xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor"
                             class="bi bi-hourglass-split" viewBox="0 0 16 16">
                             <path
@@ -189,7 +194,7 @@ $totalalunos = $row['total_rows'];
                                 <h4 class="imgAlarme" style="color: #F4B544; margin-top: 20px; ">Livros Emprestados</h4>
                             </div>
                             <div class="col-md-2" style="width: 47.666667%;">
-                                <span style="color: #F4B544;font-size: 90px;">0</span>
+                                <span style="color: #F4B544;font-size: 90px;"><?php echo "$totalemprestado" ?></span>
                             </div>
                             <div class="col-md-2">
                                 <img src="img/livroemprestado.png" style="height: 25%; margin-top: 8vh;

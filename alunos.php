@@ -48,7 +48,7 @@ $logado = $_SESSION['Usuario'];
                 </div>
 
                 <div class="mb-4 text-center">
-                    <button class="navigateButton hover-animated-button" data-url="#"><svg
+                    <button class="navigateButton hover-animated-button" data-url="atribuidos.php"><svg
                             xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor"
                             class="bi bi-hourglass-split" viewBox="0 0 16 16">
                             <path
