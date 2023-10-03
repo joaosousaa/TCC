@@ -1,14 +1,18 @@
 <?php
-if(isset($_POST['submit'])){
-include_once('dbcon.php');
+if (isset($_POST['submit'])) {
+    include_once('dbcon.php');
 
-$aluno =$_POST ['aluno'];
-$livro =$_POST ['livro'];
-$data_emprestimo =$_POST ['data_emprestimo'];
-$data_devolucao =$_POST ['data_devolucao'];
+    $aluno = $_POST['aluno'];
+    $ano_turma = $_POST['ano_turma'];
+    $curso = $_POST['curso'];
+    $email = $_POST['email'];
+    $livro = $_POST['livro'];
+    $data_emprestimo = $_POST['data_emprestimo'];
+    $data_devolucao = $_POST['data_devolucao'];
 
-$result = mysqli_query($con, "INSERT INTO emprestimo(aluno,livro,data_emprestimo,data_devolucao) VALUES ('$aluno','$livro','$data_emprestimo','$data_devolucao')");
-};
+    $result = mysqli_query($con, "INSERT INTO emprestimo(aluno, ano_turma, curso, email, livro, data_emprestimo, data_devolucao) VALUES ('$aluno','$ano_turma','$curso','$email','$livro','$data_emprestimo','$data_devolucao')");
+}
+;
 
 include('login/verificarlogin.php');
 $logado = $_SESSION['Usuario'];
@@ -59,7 +63,7 @@ $logado = $_SESSION['Usuario'];
                 </div>
 
                 <div class="mb-4 text-center">
-                    <button class="navigateButton hover-animated-button" data-url="#"><svg
+                    <button class="navigateButton hover-animated-button" data-url="atribuidos.php"><svg
                             xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor"
                             class="bi bi-hourglass-split" viewBox="0 0 16 16">
                             <path
@@ -126,47 +130,62 @@ $logado = $_SESSION['Usuario'];
             </header>
 
             <div class="conteudo">
-                <div class="" style="padding-top: 24vh;">
+                <div class="" style="">
                     <div class="divFormulario">
-                        <h1 class="tituloFormulario">Empréstimo de Livros</h1>
+
 
                         <form action="emprestimo.php" method="POST" class="formLivro">
 
-                            <div class="col-12 mb-3">
-                                <label for="nome">Aluno:</label>
+                            <div class="col-12">
+                                <label for="aluno" class="form-label" style="color:#0B5ED7;">*Aluno</label>
                                 <input type="text" name="aluno" class="form-control" id="aluno"
-                                    placeholder="Digite a palavra" onkeyup="carregar_alunos(this.value)"
-                                    autocomplete="off">
-                                <!-- Carregar as opções retornada do BD -->
+                                    placeholder="Pesquisar Aluno" onkeyup="carregar_alunos(this.value)"
+                                    autocomplete="nope" style="background-color:#f1f6ffed;">
                                 <span id="resultado_pesquisa_alunos"></span>
                             </div>
 
-
-                            <div class="col-12 mb-3">
-                                <label for="livro">livro:</label>
-                                <input type="text" name="livro" class="form-control" id="livro"
-                                    placeholder="Digite a palavra" onkeyup="carregar_livros(this.value)"
-                                    autocomplete="off">
-                                <!-- Carregar as opções retornada do BD -->
-                                <span id="Resultado_pesquisa_livros"></span>
+                            <div id="esconde" style="display: none;">
+                                <input type="hidden" name="id_aluno" class="form-control" id="id_aluno" readonly>
+                                <label for="aluno" class="form-label">Ano/Turma</label>
+                                <input type="" name="ano_turma" class="form-control" id="ano_turma" readonly>
+                                <label for="aluno" class="form-label">Curso</label>
+                                <input type="" name="curso" class="form-control" id="curso" readonly>
+                                <label for="aluno" class="form-label">Email</label>
+                                <input type="" name="email" class="form-control" id="email" readonly>
                             </div>
 
-                            <div class="form-group row">
+
+                            <div class="col-12">
+                                <label for="livro" class="form-label" style="color:#0B5ED7;">*Livro</label>
+                                <input type="text" name="livro" class="form-control" id="livro"
+                                    placeholder="Pesquisar Livro" onkeyup="carregar_livros(this.value)"
+                                    autocomplete="off" style="background-color:#f1f6ffed;">
+                                <span id="resultado_pesquisa"></span>
+                            </div>
+                            <input type="hidden" name="id_livro" class="form-control" id="id_livro">
+                            <input type="hidden" name="quantidade_livro" class="form-control" id="quantidade_livro">
+
+                            <div class="form-group row" style="width: 95vh">
                                 <div class="col">
                                     <label for="data_emprestimo">Data de Empréstimo:</label>
                                     <input type="date" class="form-control" id="data_emprestimo" name="data_emprestimo"
-                                        required>
+                                        required style="width: 34vh;">
                                 </div>
 
 
                                 <div class="col">
                                     <label for="data_devolucao">Data de Devolução:</label>
                                     <input type="date" class="form-control" id="data_devolucao" name="data_devolucao"
-                                        required>
+                                        required style="width: 34vh;">
+
+                                </div>
+                                <div class="col">
+                                    <button type="submit" name="submit" class="btn"
+                                        style="background-color:#0B5ED7;  color: white; margin-top: 4vh; ">Emprestar</button>
                                 </div>
                             </div>
 
-                            <button type="submit" name="submit" class="btn btn-primary">Enviar</button>
+
 
                         </form>
                     </div>
@@ -200,8 +219,8 @@ $logado = $_SESSION['Usuario'];
                     integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
                     crossorigin="anonymous"></script>
 
-                <script src="./js/inputaluno.js"></script>
-                <script src="./js/inputlivro.js"></script>
+                <script src="./js/custom.js"></script>
+                <script src="./js/custom2.js"></script>
 
 </body>
 

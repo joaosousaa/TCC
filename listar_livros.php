@@ -1,57 +1,35 @@
 <?php
 
-// Incluir conexão com banco de dados
-include_once './dbcon.php';
+include_once "dbcon.php";
 
-// Receber o titulo que será pesquisado no BD
-$titulo_livro = filter_input(INPUT_GET, "titulo", FILTER_DEFAULT);
+$titulo_livro = filter_input(INPUT_GET, "titulo", FILTER_SANITIZE_STRING);
 
-// Acessa o IF quando a variável $titulo_livro possui valor
-if(!empty($titulo_livro)) {
+if (!empty($titulo_livro)) {
 
-    //$pesq_livro = "%" . $titulo_livro . "%";
-    /*$query_livros = "SELECT id, titulo 
-                FROM livros 
-                WHERE titulo LIKE :titulo 
-                LIMIT 10";*/
+    $pesq_livros = "%" . $titulo_livro . "%";
 
-    // QUERY para pesquisa no banco de dados por cada palavra individual
-    $query_livros = "SELECT id, titulo 
-                FROM livros 
-                WHERE MATCH(titulo) 
-                AGAINST (:titulo IN NATURAL LANGUAGE MODE) 
-                LIMIT 10";
-
-    // Preparar a QUERY
+    $query_livros = "SELECT id, titulo, quantidade_livro FROM livros WHERE titulo LIKE :titulo LIMIT 20";
     $result_livros = $conn->prepare($query_livros);
-
-    // Substituir o link :titulo pelo valor que deve ser pesquisado
-    $result_livros->bindParam(':titulo', $titulo_livro);
-
-    // Executar a QUERY
+    $result_livros->bindParam(':titulo', $pesq_livros);
     $result_livros->execute();
 
-    // Acessa o IF quando encontrar registro no banco de dados
-    if(($result_livros) and ($result_livros->rowCount() != 0)) {
-
-        // Ler os registros retornado do banco de dados
-        while($row_livro = $result_livros->fetch(PDO::FETCH_ASSOC)){
-
-            // Criar o array de dados
-            $dados[] = [
-                "id" => $row_livro['id'],
-                "titulo" => $row_livro['titulo']
+    if (($result_livros) and ($result_livros->rowCount() != 0)) {
+        while ($row_livro = $result_livros->fetch(PDO::FETCH_ASSOC)) {
+            $Dados[] = [
+                'id' => $row_livro['id'],
+                'titulo' => $row_livro['titulo'],
+                'quantidade_livro' => $row_livro['quantidade_livro'],
             ];
         }
 
-        // Retornar os dados retornado do banco de dados
-        $retorna = ['status' => true, 'dados' => $dados];
+        $retorna = ['erro' => false, 'Dados' => $Dados];
+        //$retorna = ['erro' => true, 'msg' => "Erro: Nenhum usuário encontrado!"];
     } else {
-        $retorna = ['status' => false, 'msg' => "Erro: Nenhum livro encontrado!"];
+        $retorna = ['erro' => true, 'msg' => "Erro: Nenhum usuário encontrado!"];
     }
+
 } else {
-    $retorna = ['status' => false, 'msg' => "Erro: Nenhum livro encontrado!"];
+    $retorna = ['erro' => true, 'msg' => "Erro: Nenhum usuário encontrado!"];
 }
 
-// Retornar os dados em formato de objeto
 echo json_encode($retorna);
