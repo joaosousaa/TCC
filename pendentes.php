@@ -2,11 +2,11 @@
 include('login/verificarlogin.php');
 $logado = $_SESSION['Usuario'];
 include_once('dbcon.php');
-$query = "SELECT COUNT(*) as total_rows FROM emprestimo";
+$query = "SELECT COUNT(*) as total_rows FROM pendentes";
 
 $result = mysqli_query($con, $query);
 $row = mysqli_fetch_assoc($result);
-$totalatribuidos = $row['total_rows'];
+$totalpendentes = $row['total_rows'];
 ?>
 
 <!DOCTYPE html>
@@ -17,7 +17,7 @@ $totalatribuidos = $row['total_rows'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acervo Livros</title>
-    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/logo3.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <style>
@@ -25,7 +25,7 @@ $totalatribuidos = $row['total_rows'];
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/boxicons@2.0.9/css/boxicons.min.css">
     <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
-    <link rel="stylesheet" href="css/atribuido.css">
+    <link rel="stylesheet" href="css/pendentes.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@100&family=Saira+Condensed:wght@100&display=swap"
@@ -50,8 +50,7 @@ $totalatribuidos = $row['total_rows'];
                     <div class="legenda">Início</div>
                 </div>
                 <div class="mb-4 text-center">
-                    <button class="navigateButton hover-animated-button"
-                        style=" background-color: white; color:#468CC9;" data-url="atribuidos.php"><svg
+                    <button class="navigateButton hover-animated-button" data-url="atribuidos.php"><svg
                             xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor"
                             class="bi bi-hourglass-split" viewBox="0 0 16 16">
                             <path
@@ -60,7 +59,8 @@ $totalatribuidos = $row['total_rows'];
                     <div class="legenda">Atríbuidos</div>
                 </div>
                 <div class="mb-4 text-center">
-                    <button class="navigateButton hover-animated-button" data-url="pendentes.php"> <svg
+                    <button class="navigateButton hover-animated-button"
+                        style=" background-color: white; color:#468CC9;" data-url="pendentes.php"> <svg
                             xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor"
                             class="bi bi-clock-fill" viewBox="0 0 16 16">
                             <path
@@ -127,8 +127,8 @@ $totalatribuidos = $row['total_rows'];
                                             echo $_GET['busca']; ?>" placeholder="Digite os termos de pesquisa"
                                             type="text" style="border-radius: 0px 10px 10px 0px;">
 
-                                        <h1 class="tituloo">Livros Atríbuidos: <span style="color: #0B5ED7;">
-                                                <?php echo "$totalatribuidos" ?>
+                                        <h1 class="tituloo">Livros Pendentes: <span style="color: red;">
+                                                <?php echo "$totalpendentes" ?>
                                             </span></h1>
 
                                     </div>
@@ -143,38 +143,8 @@ $totalatribuidos = $row['total_rows'];
 
                                         if (!isset($_GET['busca'])) {
 
-
-                                            $query = "SELECT * FROM emprestimo";
+                                            $query = "SELECT * FROM pendentes";
                                             $query_run = mysqli_query($con, $query);
-
-
-
-
-
-                                            // 1. Busque todos os registros em `emprestimo` cuja `data_devolucao` é anterior à data atual.
-                                            $query_expired_loans = "SELECT * FROM emprestimo WHERE CURDATE() > data_devolucao";
-                                            $result_expired_loans = mysqli_query($con, $query_expired_loans);
-
-                                            while ($livros = mysqli_fetch_assoc($result_expired_loans)) {
-                                                // 2. Para cada registro, inserir na tabela `pendente` e depois excluir da tabela `emprestimo`.
-                                        
-                                                $insert_query = "INSERT INTO pendentes (livro, aluno, curso, ano_turma, email, data_emprestimo, data_devolucao) VALUES (?, ?, ?, ?, ?, ?, ?)";
-
-                                                // Usando prepared statements para inserir dados de forma segura
-                                                $stmt = mysqli_prepare($con, $insert_query);
-                                                mysqli_stmt_bind_param($stmt, 'sssssss', $livros['livro'], $livros['aluno'], $livros['curso'], $livros['ano_turma'], $livros['email'], $livros['data_emprestimo'], $livros['data_devolucao']);
-
-                                                if (mysqli_stmt_execute($stmt)) {
-                                                    // Se inserção for bem-sucedida, exclua o registro da tabela `emprestimo`.
-                                                    $delete_query = "DELETE FROM emprestimo WHERE id=?";
-                                                    $stmt2 = mysqli_prepare($con, $delete_query);
-                                                    mysqli_stmt_bind_param($stmt2, 'i', $livros['id']);
-                                                    mysqli_stmt_execute($stmt2);
-                                                }
-                                            }
-
-
-
 
                                             if (mysqli_num_rows($query_run) > 0) {
                                                 foreach ($query_run as $livros) {
@@ -188,11 +158,11 @@ $totalatribuidos = $row['total_rows'];
                                                             style="background-color: #ecf2f9; margin-bottom:10px; border-radius: 10px;  padding: 37px;">
                                                             <div class="col-md-11 ">
                                                                 Livro
-                                                                <strong style="color:#0B5ED7;">
+                                                                <strong style="color:red;">
                                                                     <?= $livros['livro'] ?>
                                                                 </strong>
                                                                 emprestado ao aluno(a)
-                                                                <strong style="color:#0B5ED7;">
+                                                                <strong style="color:red;">
                                                                     <?= $livros['aluno'] ?>
                                                                 </strong>
                                                                 do curso
@@ -202,21 +172,22 @@ $totalatribuidos = $row['total_rows'];
                                                                 , portador do email
                                                                 <?= $livros['email'] ?>
                                                                 com data de empréstimo em
-                                                                <strong style="color:#0B5ED7;">
+                                                                <strong style="color:red;">
                                                                     <?= $dataEmprestimo ?>
                                                                 </strong>
-                                                                e devolução agendada para  <strong style="color:#0B5ED7;">
+                                                                e devolução agendada para  <strong style="color:red;">
                                                                     <?= $dataDevolucao ?>
                                                                 </strong>
                                                             </div>
 
                                                             <div class="col-md-1 ">
-                                                                <form action="transferir_livro.php" method="post" style="">
+                                                                <form action="transferir_livro_pendentes.php" method="post"
+                                                                    style="">
                                                                     <input type="hidden" name="livro_id"
-                                                                        value="<?= $livros['id']; ?>">
-                                                                    <button type="submit" class="btn btn-primary btn-sm"
+                                                                        value="<?= $livros['idpendentes']; ?>">
+                                                                    <button type="submit" class="btn btn-danger btn-sm"
                                                                         style=" display: flex;    justify-content: center; align-items:">
-                                                                        Entregue
+                                                                        Entregar
                                                                     </button>
                                                                 </form>
                                                             </div>
@@ -229,7 +200,7 @@ $totalatribuidos = $row['total_rows'];
                                             <?php
                                         } else {
                                             $pesquisa = $con->real_escape_string($_GET['busca']);
-                                            $sql_code = "SELECT * FROM emprestimo WHERE id LIKE '%$pesquisa%' 
+                                            $sql_code = "SELECT * FROM pendentes WHERE idpendentes LIKE '%$pesquisa%' 
                                                 OR aluno LIKE '%$pesquisa%' 
                                                 OR ano_turma LIKE '%$pesquisa%' OR livro LIKE '%$pesquisa%'";
                                             $sql_query = $con->query($sql_code) or die("ERRO ao consultar! " . $con->$error);
@@ -278,7 +249,7 @@ $totalatribuidos = $row['total_rows'];
                                                                 <form action="transferir_livro.php" method="post" style="">
                                                                     <input type="hidden" name="livro_id"
                                                                         value="<?= $livros['id']; ?>">
-                                                                    <button type="submit" class="btn btn-primary btn-sm"
+                                                                    <button type="submit" class="btn btn-danger btn-sm"
                                                                         style=" display: flex;    justify-content: center; align-items:">
                                                                         Entregar
                                                                     </button>

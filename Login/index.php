@@ -4,7 +4,7 @@
 session_start();
 
 if (isset($_POST['Usuario'], $_POST['Senha'])) {
-	if ($_POST['Usuario'] == 'Joao' && $_POST['Senha'] == '2023') {
+	if ($_POST['Usuario'] == 'Sandra' && $_POST['Senha'] == '2023') {
 		$_SESSION['Usuario'] = $_POST['Usuario'];
 		header('Location: ../home.php');
 	}
@@ -20,7 +20,7 @@ if (isset($_GET['erro'])) {
 <html lang="pt-br">
 <head>
 	<title>Login</title>
-	<link rel="shortcut icon" href="../img/logob-removebg-preview (1).png" type="image/x-icon">
+	<link rel="shortcut icon" href="../img/icon.png" type="image/x-icon">
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 

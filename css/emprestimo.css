@@ -2,11 +2,11 @@
     margin: 0px;
     padding: 0px;
 }
-  
+
 
 body {
     overflow: hidden;
-    background: linear-gradient(to bottom right, #1d87c5, #902f9b);
+    background: linear-gradient(to bottom right, #284e65, #341189);
 }
 
 .imgFundo {
@@ -15,7 +15,7 @@ body {
     height: 100%;
     object-fit: cover;
     z-index: -1;
-   
+
 }
 
 
@@ -102,7 +102,7 @@ body {
 .animated-underline:hover::after {
     transform: scaleX(1);
     transform-origin: left;
-    
+
 }
 
 /*coluna navegação de páginas*/
@@ -196,9 +196,13 @@ body {
 }
 
 .conteudo {
-    background-color: #ffffff;
+
     height: 87%;
     border-radius: 30px;
+    background-image: url('../IMG/fundotest.avif');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
 }
 
 .caixas {
@@ -251,12 +255,12 @@ h5 {
     color: black;
 }
 
-.divFormulario{
+.divFormulario {
     margin: auto;
     width: 90vh;
     padding-top: 9vh;
 }
 
-.tituloFormulario{
+.tituloFormulario {
     text-align: center;
 }

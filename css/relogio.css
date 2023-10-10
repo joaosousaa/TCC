@@ -4,6 +4,7 @@
   box-sizing: border-box;
   font-family: 'poppins', sans-serif;
 }
+
 .clock {
   box-shadow: 11px 11px 30px rgb(0 0 0 / 21%);
   position: relative;
@@ -27,7 +28,9 @@
   font-size: 24px;
 }
 
-.hour, .min, .sec {
+.hour,
+.min,
+.sec {
   position: absolute;
   background-color: black;
   bottom: 50%;

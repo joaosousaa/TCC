@@ -3,7 +3,6 @@
     padding: 0px;
 }
 
-
 body {
     overflow: hidden;
     background: linear-gradient(to bottom right, #284e65, #341189);
@@ -17,6 +16,16 @@ body {
     z-index: -1;
 }
 
+.form-control {
+    height: 35px;
+    border-radius: 0px 10px 10px 0px;
+}
+
+.search {
+    height: 35px;
+    width: 35px;
+    border-radius: 10px 0px 0px 10px;
+}
 
 /*cabeçario*/
 .container-fluid {
@@ -35,7 +44,6 @@ body {
     font-size: 21px;
 }
 
-
 .labelSair {
     font-family: 'Saira Condensed', sans-serif;
     font-size: 18px;
@@ -49,7 +57,6 @@ body {
 }
 
 .sair {
-
     border-radius: 20px;
     font-weight: bold;
     border: none;
@@ -126,10 +133,7 @@ body {
     font-family: 'Saira Condensed', sans-serif;
 }
 
-.btn-primary {
-    --bs-btn-bg: #ffffff00;
-    --bs-btn-border-color: #ffffff00;
-}
+
 
 .navegacao {
     height: 100vh;
@@ -178,7 +182,7 @@ body {
 /*conteudo principal da pagina*/
 .conteudoPrincipal {
     padding-top: 27px;
-    width: 176vh;
+    width: 171vh;
     margin: auto;
 }
 
@@ -202,39 +206,37 @@ body {
 
 .caixas {
     border-radius: 15px 15px 15px 15px;
-    margin-right: 55px;
+    margin-right: 30px;
     width: 439px;
     box-shadow: 11px 11px 30px rgb(0 0 0 / 21%);
     padding-left: 30px;
     background-color: rgb(255, 255, 255);
-    height: 240px;
+    height: 300px;
 }
 
 .caixa1 {
-    height: 240px;
-    width: 485px;
+    height: 300px;
+    width: 539px;
     background: linear-gradient(to bottom right, #2482ad, #ff81002e);
 }
 
 .caixa2 {
-    width: 280px;
+    width: 300px;
     background-color: #ff81002e;
 }
 
 .pendeteMsg {
-    margin-top: 23px;
-    font-size: 12px;
     margin-right: 10px;
 }
 
 .caixa3 {
     background: linear-gradient(to bottom right, #a1e9c8, #adb5bd);
-    height: 240px;
-    width: 485px;
+    height: 300px;
+    width: 539px;
 }
 
 .caixa4 {
-    width: 280px;
+    width: 300px;
     background-color: #EAF0FC;
 }
 
@@ -249,3 +251,66 @@ h5 {
     font-weight: bold;
     color: black;
 }
+
+--------------------------------------------------------------------------
+/*conteudo principal da pagina*/
+
+.row {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+
+.tituloo {
+    font-family: 'Saira Condensed', sans-serif;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    color: #000000;
+    font-size: 22px;
+}
+
+.w-25 {
+    width: 50% !important;
+}
+
+.card-body {
+    overflow-y: scroll;
+    height: 77.6vh;
+
+}
+
+.card-header {
+    padding: var(--bs-card-cap-padding-y) var(--bs-card-cap-padding-x);
+    margin-bottom: 0;
+    color: var(--bs-card-cap-color);
+    background-color: #0068ff0a;
+    border-bottom: var(--bs-card-border-width) solid var(--bs-card-border-color);
+}
+
+.table-striped>tbody>tr:nth-of-type(odd)>* {
+    --bs-table-accent-bg: #0068ff0a;
+    color: var(--bs-table-striped-color);
+}
+
+.card-body::-webkit-scrollbar {
+    width: 12px;
+    background-color: whitesmoke;
+}
+
+.card-body::-webkit-scrollbar-thumb {
+    border-radius: 10px;
+    background-color: rgb(169, 169, 169);
+}
+
+.box-search {
+    display: flex;
+    gap: .1%;
+}
+
+.modal {
+    margin-top: 3vh;
+    --bs-modal-width: 702px;
+}
+
+/*coluna navegação de paginas*/

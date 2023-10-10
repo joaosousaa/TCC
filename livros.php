@@ -11,7 +11,7 @@ $logado = $_SESSION['Usuario'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Acervo Livros</title>
-    <link rel="shortcut icon" href="img/logob-removebg-preview (1).png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <style>
@@ -24,6 +24,7 @@ $logado = $_SESSION['Usuario'];
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@100&family=Saira+Condensed:wght@100&display=swap"
         rel="stylesheet">
+
 </head>
 
 <body>
@@ -57,7 +58,7 @@ $logado = $_SESSION['Usuario'];
                 </div>
 
                 <div class="mb-4 text-center">
-                    <button class="navigateButton hover-animated-button" data-url="#"> <svg
+                    <button class="navigateButton hover-animated-button" data-url="pendentes.php"> <svg
                             xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor"
                             class="bi bi-clock-fill" viewBox="0 0 16 16">
                             <path
@@ -67,7 +68,7 @@ $logado = $_SESSION['Usuario'];
                 </div>
 
                 <div class="mb-4 text-center">
-                    <button class="navigateButton hover-animated-button" data-url="#"><svg
+                    <button class="navigateButton hover-animated-button" data-url="entregues.php"><svg
                             xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor"
                             class="bi bi-file-earmark-check-fill" viewBox="0 0 16 16">
                             <path
@@ -76,7 +77,7 @@ $logado = $_SESSION['Usuario'];
                     <div class="legenda">Entregues</div>
                 </div>
 
-                <img src="img/joao.jpg" alt=""
+                <img src="img/sandra.png" alt=""
                     style=" margin-top: 4vh; height: 50px; margin-left:34px; border-radius:10px;">
 
             </div>
@@ -95,7 +96,7 @@ $logado = $_SESSION['Usuario'];
                                 <?php echo "$logado" ?>!
                             </h3>
                             <div class="navpaginas">
-                                <a href="cadastrolivros.php" id="a1" class="animated-underline"
+                                <a href="livros.php" id="a1" class="animated-underline"
                                     style="font-weight: bolder; font-size: 22px;">ACERVO</a>
                                 <a href="alunos.php" id="a2" class="animated-underline">ALUNOS</a>
                                 <a href="emprestimo.php" id="a3" class="animated-underline">EMPRÉSTIMO</a>
@@ -287,17 +288,23 @@ $logado = $_SESSION['Usuario'];
                             <div class="card-header">
                                 <form action="">
 
-                                    <div class="box-search">
+                                    <div class="box-search" style="gap: .0%;">
+                                        <button type="submit" class="search btn btn-primary"><svg
+                                                xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                            </svg></button>
                                         <input name="busca" class="form-control w-25" value="<?php if (isset($_GET['busca']))
                                             echo $_GET['busca']; ?>" placeholder="Digite os termos de pesquisa"
-                                            type="text">
-                                        <button type="submit" class="btn btn-primary">Pesquisar</button>
-                                        <h1 class="tituloo">Controle de Livros</h1>
+                                            type="text" style="border-radius: 0px 10px 10px 0px;">
+
+
                                         <div style="float: right; width: 100%; margin-right:1.5%">
                                             <button type="button" class="btn btn-primary float-end"
                                                 data-bs-toggle="modal" data-bs-target="#livrosAddModal"
-                                                style=" height: 44px;">
-                                                Adicionar Livros
+                                                style="height: 35px; font-size: 13px;;">
+                                                Adicionar Livro
                                             </button>
                                         </div>
                                     </div>
@@ -317,10 +324,10 @@ $logado = $_SESSION['Usuario'];
                                             <th>Título</th>
                                             <th>Autor</th>
                                             <th>Editor</th>
-                                            <th>Ano do Livro</th>
-                                            <th>Quantidade do Livro</th>
+                                            <th>Ano</th>
+                                            <th>Quantidade</th>
                                             <th>Observacao</th>
-                                            <th>Data do Cadastro</th>
+                                            <th>Cadastrado</th>
                                             <th>Ações</th>
                                         </tr>
                                     </thead>
@@ -367,7 +374,7 @@ $logado = $_SESSION['Usuario'];
                                                         <td>
                                                             <?= $livros['data_cadastro'] ?>
                                                         </td>
-                                                        <td>
+                                                        <td style="width: 128px;">
                                                             <button type="button" value="<?= $livros['id']; ?>"
                                                                 class="viewLivrosBtn btn btn-info btn-sm"><svg
                                                                     xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -442,7 +449,7 @@ $logado = $_SESSION['Usuario'];
                                                         <td>
                                                             <?= $livros['data_cadastro'] ?>
                                                         </td>
-                                                        <td>
+                                                        <td style="width: 128px;">
                                                             <button type="button" value="<?= $livros['id']; ?>"
                                                                 class="viewLivrosBtn btn btn-info btn-sm"><svg
                                                                     xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -514,6 +521,7 @@ $logado = $_SESSION['Usuario'];
 
         ?>
     </main>
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
@@ -709,9 +717,6 @@ $logado = $_SESSION['Usuario'];
         });
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
 
 </body>
 

@@ -11,7 +11,7 @@ $logado = $_SESSION['Usuario'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro Alunos</title>
-    <link rel="shortcut icon" href="img/logob-removebg-preview (1).png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <style>
@@ -24,6 +24,8 @@ $logado = $_SESSION['Usuario'];
     <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@100&family=Saira+Condensed:wght@100&display=swap"
         rel="stylesheet">
 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/css/alertify.min.css" />
+
 </head>
 
 <body>
@@ -32,13 +34,12 @@ $logado = $_SESSION['Usuario'];
         <!--Navegação-->
         <div class="col-md-2 navegacao">
 
-        <div class="button-container">
+            <div class="button-container">
                 <img src="img/logo3.png" class="logo" alt="">
                 <label for="" class="logotext">UPBOOK</label>
 
                 <div class="mb-4 text-center">
-                    <button class="navigateButton hover-animated-button"
-                        style="" data-url="home.php"><svg
+                    <button class="navigateButton hover-animated-button" style="" data-url="home.php"><svg
                             xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor"
                             class="bi bi-house-door-fill" viewBox="0 0 16 16">
                             <path
@@ -58,7 +59,7 @@ $logado = $_SESSION['Usuario'];
                 </div>
 
                 <div class="mb-4 text-center">
-                    <button class="navigateButton hover-animated-button" data-url="#"> <svg
+                    <button class="navigateButton hover-animated-button" data-url="pendentes.php"> <svg
                             xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor"
                             class="bi bi-clock-fill" viewBox="0 0 16 16">
                             <path
@@ -68,7 +69,7 @@ $logado = $_SESSION['Usuario'];
                 </div>
 
                 <div class="mb-4 text-center">
-                    <button class="navigateButton hover-animated-button" data-url="#"><svg
+                    <button class="navigateButton hover-animated-button" data-url="entregues.php"><svg
                             xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor"
                             class="bi bi-file-earmark-check-fill" viewBox="0 0 16 16">
                             <path
@@ -96,7 +97,8 @@ $logado = $_SESSION['Usuario'];
                             </h3>
                             <div class="navpaginas">
                                 <a href="livros.php" id="a1" class="animated-underline" style="">ACERVO</a>
-                                <a href="alunos.php" id="a2" style=" font-weight: bolder; font-size: 22px;" class="animated-underline">ALUNOS</a>
+                                <a href="alunos.php" id="a2" style=" font-weight: bolder; font-size: 22px;"
+                                    class="animated-underline">ALUNOS</a>
                                 <a href="emprestimo.php" id="a3" class="animated-underline">EMPRÉSTIMO</a>
                             </div>
                         </div>
@@ -114,7 +116,7 @@ $logado = $_SESSION['Usuario'];
             </header>
 
             <div class="conteudo">
-            <div class="modal fade" id="livrosAddModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+                <div class="modal fade" id="livrosAddModal" tabindex="-1" aria-labelledby="exampleModalLabel"
                     aria-hidden="true">
                     <div class="modal-dialog">
                         <div class="modal-content">
@@ -154,7 +156,7 @@ $logado = $_SESSION['Usuario'];
                                                 <option value="Desenvolvimento de Sistemas" required>Desenvolvimento de
                                                     Sistemas</option>
                                                 <option value="Eletrotécnica" required> Eletrotécnica</option>
-                                                <option value="Guia de Turismo" <?php echo ($curso == 'feminino') ? 'checked' : ''; ?> required>Guia de Turismo</option>
+                                                <option value="Guia de Turismo">Guia de Turismo</option>
                                             </select>
                                         </div>
                                     </div>
@@ -175,7 +177,7 @@ $logado = $_SESSION['Usuario'];
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">Fechar</button>
-                                    <button type="submit" class="btn btn-primary">Salvar Livro</button>
+                                    <button type="submit" class="btn btn-primary">Salvar Aluno</button>
                                 </div>
                             </form>
                         </div>
@@ -222,7 +224,7 @@ $logado = $_SESSION['Usuario'];
                                             <select id="curso" name="curso" class="form-control" required>
                                                 <option value="Desenvolvimento de Sistemas" required>Desenvolvimento de
                                                     Sistemas</option>
-                                                <option value="Eletrotécnica" <?php echo ($curso == 'Eletrotécnica') ? 'checked' : ''; ?>required> Eletrotécnica</option>
+                                                <option value="Eletrotécnica" required> Eletrotécnica</option>
                                                 <option value="Guia de Turismo" required>Guia de Turismo</option>
                                             </select>
                                         </div>
@@ -245,7 +247,7 @@ $logado = $_SESSION['Usuario'];
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary"
                                         data-bs-dismiss="modal">Fechar</button>
-                                    <button type="submit" class="btn btn-primary">Editar Livro </button>
+                                    <button type="submit" class="btn btn-primary">Editar Aluno </button>
                                 </div>
                             </form>
                         </div>
@@ -305,18 +307,25 @@ $logado = $_SESSION['Usuario'];
                             <div class="card-header">
 
                                 <form action="">
-                                    <div class="box-search">
+                                    <div class="box-search" style="gap: .0%;">
+                                        <button type="submit" class="search btn btn-primary"><svg
+                                                xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                                fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                                <path
+                                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                            </svg></button>
                                         <input name="busca" class="form-control w-25" value="<?php if (isset($_GET['busca']))
                                             echo $_GET['busca']; ?>" placeholder="Digite os termos de pesquisa"
-                                            type="text">
-                                        <button type="submit" class="btn btn-primary">Pesquisar</button>
-                                        <h1 class="tituloo">Controle de Alunos</h1>
+                                            type="text" style="border-radius: 0px 10px 10px 0px;">
+
+
+
                                         <div style="float: right; width: 100%; margin-right:1.5%">
 
                                             <button type="button" class="btn btn-primary float-end"
                                                 data-bs-toggle="modal" data-bs-target="#livrosAddModal"
-                                                style=" height: 44px;">
-                                                Cadastrar Alunos
+                                                style="height: 35px; font-size: 13px;;">
+                                                Cadastrar Aluno
                                             </button>
                                         </div>
                                     </div>
@@ -333,7 +342,7 @@ $logado = $_SESSION['Usuario'];
                                             <th>curso</th>
                                             <th>Email</th>
                                             <th>Observacao</th>
-                                            <th>Data do Cadastro</th>
+                                            <th>Cadastrado</th>
                                             <th>Ações</th>
                                         </tr>
                                     </thead>
@@ -343,7 +352,6 @@ $logado = $_SESSION['Usuario'];
 
                                         if (!isset($_GET['busca'])) {
 
-                                            require 'dbcon.php';
 
                                             $query = "SELECT * FROM alunos";
                                             $query_run = mysqli_query($con, $query);
@@ -374,7 +382,7 @@ $logado = $_SESSION['Usuario'];
                                                         <td>
                                                             <?= $livros['data_cadastro'] ?>
                                                         </td>
-                                                        <td>
+                                                        <td style="width: 128px;">
                                                             <button type="button" value="<?= $livros['id']; ?>"
                                                                 class="viewLivrosBtn btn btn-info btn-sm"><svg
                                                                     xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -447,7 +455,7 @@ $logado = $_SESSION['Usuario'];
                                                         <td>
                                                             <?= $livros['data_cadastro'] ?>
                                                         </td>
-                                                        <td>
+                                                        <td style="width: 128px;">
                                                             <button type="button" value="<?= $livros['id']; ?>"
                                                                 class="viewLivrosBtn btn btn-info btn-sm"><svg
                                                                     xmlns="http://www.w3.org/2000/svg" width="16" height="16"
@@ -518,7 +526,7 @@ $logado = $_SESSION['Usuario'];
         ?>
     </main>
 
-    <script>document.querySelectorAll('.navigateButton').forEach(function (button) {
+    <script> document.querySelectorAll('.navigateButton').forEach(function (button) {
             button.addEventListener('click', function () {
                 // Obtém o URL do atributo 'data-url' do botão clicado
                 const url = this.getAttribute('data-url');
@@ -540,14 +548,13 @@ $logado = $_SESSION['Usuario'];
         });
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-        crossorigin="anonymous"></script>
 
-        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 
     <script src="//cdn.jsdelivr.net/npm/alertifyjs@1.13.1/build/alertify.min.js"></script>
+
 
     <script>
         $(document).on('submit', '#saveLivros', function (e) {
@@ -587,8 +594,17 @@ $logado = $_SESSION['Usuario'];
             });
 
         });
+        document.getElementById("curso").addEventListener("change", function () {
+            var selectedValue = this.value;
+            console.log(selectedValue);  // Isto imprimirá o valor do option selecionado.
+        });
 
         $(document).on('click', '.editLivrosBtn', function () {
+
+            document.getElementById("curso").addEventListener("change", function () {
+                var selectedValue = this.value;
+                console.log(selectedValue);  // Isto imprimirá o valor do option selecionado.
+            });
 
             var livros_id = $(this).val();
 

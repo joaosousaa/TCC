@@ -5,7 +5,7 @@
 
 body {
     overflow: hidden;
-    background: linear-gradient(to bottom right, #1d87c5, #902f9b);
+    background: linear-gradient(to bottom right, #284e65, #341189);
 }
 
 .imgFundo {
@@ -16,6 +16,15 @@ body {
     z-index: -1;
 }
 
+.form-control {
+    height: 35px;
+}
+
+.search {
+    height: 35px;
+    width: 35px;
+    border-radius: 10px 0px 0px 10px;
+}
 
 /*cabeçario*/
 .container-fluid {
@@ -98,7 +107,7 @@ body {
 .animated-underline:hover::after {
     transform: scaleX(1);
     transform-origin: left;
-    
+
 }
 
 /*coluna navegação de páginas*/
@@ -243,11 +252,6 @@ h5 {
 }
 
 --------------------------------------------------------------------------
-
-
-
-
-
 /*conteudo principal da pagina*/
 
 .row {
@@ -255,6 +259,7 @@ h5 {
     padding: 0;
     width: 100%;
 }
+
 .tituloo {
     font-family: 'Saira Condensed', sans-serif;
     font-weight: bold;
@@ -263,13 +268,16 @@ h5 {
     color: #000000;
     font-size: 30px;
 }
+
 .w-25 {
-    width: 80%!important;
+    width: 50% !important;
 }
+
 .card-body {
     overflow-y: scroll;
     height: 77.6vh;
-    
+    padding: 0;
+
 }
 
 .card-header {
@@ -284,6 +292,7 @@ h5 {
     --bs-table-accent-bg: #0068ff0a;
     color: var(--bs-table-striped-color);
 }
+
 .card-body::-webkit-scrollbar {
     width: 12px;
     background-color: whitesmoke;
@@ -300,11 +309,8 @@ h5 {
 }
 
 .modal {
-    margin-top: 3vh;
+    margin-top: 2vh;
     --bs-modal-width: 702px;
 }
 
 /*coluna navegação de paginas*/
-
-
-

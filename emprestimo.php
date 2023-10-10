@@ -26,7 +26,7 @@ $logado = $_SESSION['Usuario'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Empréstimo Livros</title>
-    <link rel="shortcut icon" href="img/logob-removebg-preview (1).png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <style>
@@ -73,7 +73,7 @@ $logado = $_SESSION['Usuario'];
                 </div>
 
                 <div class="mb-4 text-center">
-                    <button class="navigateButton hover-animated-button" data-url="#"> <svg
+                    <button class="navigateButton hover-animated-button" data-url="pendentes.php"> <svg
                             xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor"
                             class="bi bi-clock-fill" viewBox="0 0 16 16">
                             <path
@@ -83,7 +83,7 @@ $logado = $_SESSION['Usuario'];
                 </div>
 
                 <div class="mb-4 text-center">
-                    <button class="navigateButton hover-animated-button" data-url="#"><svg
+                    <button class="navigateButton hover-animated-button" data-url="entregues.php"><svg
                             xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor"
                             class="bi bi-file-earmark-check-fill" viewBox="0 0 16 16">
                             <path
@@ -92,7 +92,7 @@ $logado = $_SESSION['Usuario'];
                     <div class="legenda">Entregues</div>
                 </div>
 
-                <img src="img/joao.jpg" alt=""
+                <img src="img/sandra.png" alt=""
                     style="  height: 50px; margin-top: 4vh; margin-left:34px; border-radius:10px;">
 
             </div>
@@ -130,11 +130,13 @@ $logado = $_SESSION['Usuario'];
             </header>
 
             <div class="conteudo">
-                <div class="" style="">
+
+                <div>
                     <div class="divFormulario">
 
 
-                        <form action="emprestimo.php" method="POST" class="formLivro">
+                        <form action="emprestimo.php" method="POST" class="formLivro" style=" background: #284e65;
+                        border: 20; padding: 32px; border-radius: 20px;">
 
                             <div class="col-12">
                                 <label for="aluno" class="form-label" style="color:#0B5ED7;">*Aluno</label>
@@ -169,14 +171,14 @@ $logado = $_SESSION['Usuario'];
                                 <div class="col">
                                     <label for="data_emprestimo">Data de Empréstimo:</label>
                                     <input type="date" class="form-control" id="data_emprestimo" name="data_emprestimo"
-                                        required style="width: 34vh;">
+                                        required style="width: 25vh;">
                                 </div>
 
 
                                 <div class="col">
                                     <label for="data_devolucao">Data de Devolução:</label>
                                     <input type="date" class="form-control" id="data_devolucao" name="data_devolucao"
-                                        required style="width: 34vh;">
+                                        required style="width: 25vh;">
 
                                 </div>
                                 <div class="col">

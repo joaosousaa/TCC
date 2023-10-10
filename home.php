@@ -19,6 +19,12 @@ $query = "SELECT COUNT(*) as total_rows FROM emprestimo";
 $result = mysqli_query($con, $query);
 $row = mysqli_fetch_assoc($result);
 $totalemprestado = $row['total_rows'];
+
+$query = "SELECT COUNT(*) as total_rows FROM pendentes";
+
+$result = mysqli_query($con, $query);
+$row = mysqli_fetch_assoc($result);
+$totalpendentes = $row['total_rows'];
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +35,7 @@ $totalemprestado = $row['total_rows'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca UpBook</title>
-    <link rel="shortcut icon" href="img/logob-removebg-preview (1).png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/logo3.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
@@ -75,7 +81,7 @@ $totalemprestado = $row['total_rows'];
                 </div>
 
                 <div class="mb-4 text-center">
-                    <button class="navigateButton hover-animated-button" data-url="#"> <svg
+                    <button class="navigateButton hover-animated-button" data-url="pendentes.php"> <svg
                             xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor"
                             class="bi bi-clock-fill" viewBox="0 0 16 16">
                             <path
@@ -85,7 +91,7 @@ $totalemprestado = $row['total_rows'];
                 </div>
 
                 <div class="mb-4 text-center">
-                    <button class="navigateButton hover-animated-button" data-url="#"><svg
+                    <button class="navigateButton hover-animated-button" data-url="entregues.php"><svg
                             xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor"
                             class="bi bi-file-earmark-check-fill" viewBox="0 0 16 16">
                             <path
@@ -94,7 +100,7 @@ $totalemprestado = $row['total_rows'];
                     <div class="legenda">Entregues</div>
                 </div>
 
-                <img src="img/joao.jpg" alt=""
+                <img src="img/sandra.png" alt=""
                     style="  height: 50px;  margin-top: 4vh; margin-left:34px; border-radius:10px;">
 
             </div>
@@ -155,7 +161,9 @@ $totalemprestado = $row['total_rows'];
                                 <h4 class="imgAlarme" style="color: black; margin-top: 20px; ">Livros Pendentes</h4>
                             </div>
                             <div class="col-md-2" style="width: 50.666667%;">
-                                <span style="color: black;font-size: 90px;">0</span>
+                                <span style="color: black;font-size: 90px;">
+                                    <?php echo "$totalpendentes" ?>
+                                </span></span>
                             </div>
                             <div class="col-md-2">
                                 <img src="img/velocimetro.png" style="height: 35%; margin-top: 4vh; margin-bottom: 4px;"
@@ -194,7 +202,9 @@ $totalemprestado = $row['total_rows'];
                                 <h4 class="imgAlarme" style="color: #F4B544; margin-top: 20px; ">Livros Emprestados</h4>
                             </div>
                             <div class="col-md-2" style="width: 47.666667%;">
-                                <span style="color: #F4B544;font-size: 90px;"><?php echo "$totalemprestado" ?></span>
+                                <span style="color: #F4B544;font-size: 90px;">
+                                    <?php echo "$totalemprestado" ?>
+                                </span>
                             </div>
                             <div class="col-md-2">
                                 <img src="img/livroemprestado.png" style="height: 25%; margin-top: 8vh;
