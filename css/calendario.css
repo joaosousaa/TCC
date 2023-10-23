@@ -32,20 +32,18 @@
   background-color: white;
   border-radius: 25px;
   overflow: hidden;
-
+padding: 0;
 }
 
-.calendar {
 
-  box-shadow: 11px 11px 30px rgb(0 0 0 / 21%);
-}
 
 .calendar-header {
-  background: #074591;
+  background: #0062a7;
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-weight: 700;
+  border-radius: 25px 25px 0px 0px;
   color: var(--white);
   padding: 5px;
 }
@@ -154,7 +152,7 @@
 
 .calendar-days div:hover {
   transition: width 0.2s ease-in-out, height 0.2s ease-in-out;
-  background-color: #fbc7d4;
+  background-color: #9baefa;
   border-radius: 20%;
   color: var(--dark-text);
 }

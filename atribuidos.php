@@ -57,7 +57,7 @@ $totalatribuidos = $row['total_rows'];
                             <path
                                 d="M2.5 15a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1h-11zm2-13v1c0 .537.12 1.045.337 1.5h6.326c.216-.455.337-.963.337-1.5V2h-7zm3 6.35c0 .701-.478 1.236-1.011 1.492A3.5 3.5 0 0 0 4.5 13s.866-1.299 3-1.48V8.35zm1 0v3.17c2.134.181 3 1.48 3 1.48a3.5 3.5 0 0 0-1.989-3.158C8.978 9.586 8.5 9.052 8.5 8.351z" />
                         </svg></button>
-                    <div class="legenda">Atríbuidos</div>
+                    <div class="legenda">Emprestados</div>
                 </div>
                 <div class="mb-4 text-center">
                     <button class="navigateButton hover-animated-button" data-url="pendentes.php"> <svg
@@ -77,7 +77,7 @@ $totalatribuidos = $row['total_rows'];
                         </svg></button>
                     <div class="legenda">Entregues</div>
                 </div>
-                <img src="img/sandra.png" alt=""
+                <img src="img/sandra2.png" alt=""
                     style=" margin-top: 4vh; height: 50px; margin-left:34px; border-radius:10px;">
             </div>
         </div>
@@ -108,200 +108,197 @@ $totalatribuidos = $row['total_rows'];
                 </nav>
             </header>
 
-            <div class="conteudo">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="card" style="height: 87vh; border-radius: 30px;">
+                        <div class="card-header">
+                            <form action="">
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <div class="card" style="whidth:100%; border-radius: 30px;">
-                            <div class="card-header">
-                                <form action="">
+                                <div class="box-search" style="gap: .0%;">
+                                    <button type="submit" class="search btn btn-primary"><svg
+                                            xmlns="http://www.w3.org/2000/svg" width="16" height="16"
+                                            fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                                            <path
+                                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
+                                        </svg></button>
+                                    <input name="busca" class="form-control w-25" value="<?php if (isset($_GET['busca']))
+                                        echo $_GET['busca']; ?>" placeholder="Digite os termos de pesquisa"
+                                        type="text" style="border-radius: 0px 20px 20px 0px;">
 
-                                    <div class="box-search" style="gap: .0%;">
-                                        <button type="submit" class="search btn btn-primary"><svg
-                                                xmlns="http://www.w3.org/2000/svg" width="16" height="16"
-                                                fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                                                <path
-                                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z" />
-                                            </svg></button>
-                                        <input name="busca" class="form-control w-25" value="<?php if (isset($_GET['busca']))
-                                            echo $_GET['busca']; ?>" placeholder="Digite os termos de pesquisa"
-                                            type="text" style="border-radius: 0px 10px 10px 0px;">
+                                    <h1 class="tituloo">Livros Emprestados: <span style="color: #0B5ED7;">
+                                            <?php echo "$totalatribuidos" ?>
+                                        </span></h1>
 
-                                        <h1 class="tituloo">Livros Atríbuidos: <span style="color: #0B5ED7;">
-                                                <?php echo "$totalatribuidos" ?>
-                                            </span></h1>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="card-body">
 
-                                    </div>
-                                </form>
-                            </div>
-                            <div class="card-body">
+                            <table id="myTable" class="table table-bordered table-striped">
 
-                                <table id="myTable" class="table table-bordered table-striped">
+                                <tbody>
+                                    <?php
 
-                                    <tbody>
-                                        <?php
-
-                                        if (!isset($_GET['busca'])) {
+                                    if (!isset($_GET['busca'])) {
 
 
-                                            $query = "SELECT * FROM emprestimo";
-                                            $query_run = mysqli_query($con, $query);
+                                        $query = "SELECT * FROM emprestimo";
+                                        $query_run = mysqli_query($con, $query);
 
 
 
 
 
-                                            // 1. Busque todos os registros em `emprestimo` cuja `data_devolucao` é anterior à data atual.
-                                            $query_expired_loans = "SELECT * FROM emprestimo WHERE CURDATE() > data_devolucao";
-                                            $result_expired_loans = mysqli_query($con, $query_expired_loans);
+                                        // 1. Busque todos os registros em `emprestimo` cuja `data_devolucao` é anterior à data atual.
+                                        $query_expired_loans = "SELECT * FROM emprestimo WHERE CURDATE() > data_devolucao";
+                                        $result_expired_loans = mysqli_query($con, $query_expired_loans);
 
-                                            while ($livros = mysqli_fetch_assoc($result_expired_loans)) {
-                                                // 2. Para cada registro, inserir na tabela `pendente` e depois excluir da tabela `emprestimo`.
-                                        
-                                                $insert_query = "INSERT INTO pendentes (livro, aluno, curso, ano_turma, email, data_emprestimo, data_devolucao) VALUES (?, ?, ?, ?, ?, ?, ?)";
+                                        while ($livros = mysqli_fetch_assoc($result_expired_loans)) {
+                                            // 2. Para cada registro, inserir na tabela `pendente` e depois excluir da tabela `emprestimo`.
+                                    
+                                            $insert_query = "INSERT INTO pendentes (livro, aluno, curso, ano_turma, email, data_emprestimo, data_devolucao) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
-                                                // Usando prepared statements para inserir dados de forma segura
-                                                $stmt = mysqli_prepare($con, $insert_query);
-                                                mysqli_stmt_bind_param($stmt, 'sssssss', $livros['livro'], $livros['aluno'], $livros['curso'], $livros['ano_turma'], $livros['email'], $livros['data_emprestimo'], $livros['data_devolucao']);
+                                            // Usando prepared statements para inserir dados de forma segura
+                                            $stmt = mysqli_prepare($con, $insert_query);
+                                            mysqli_stmt_bind_param($stmt, 'sssssss', $livros['livro'], $livros['aluno'], $livros['curso'], $livros['ano_turma'], $livros['email'], $livros['data_emprestimo'], $livros['data_devolucao']);
 
-                                                if (mysqli_stmt_execute($stmt)) {
-                                                    // Se inserção for bem-sucedida, exclua o registro da tabela `emprestimo`.
-                                                    $delete_query = "DELETE FROM emprestimo WHERE id=?";
-                                                    $stmt2 = mysqli_prepare($con, $delete_query);
-                                                    mysqli_stmt_bind_param($stmt2, 'i', $livros['id']);
-                                                    mysqli_stmt_execute($stmt2);
-                                                }
+                                            if (mysqli_stmt_execute($stmt)) {
+                                                // Se inserção for bem-sucedida, exclua o registro da tabela `emprestimo`.
+                                                $delete_query = "DELETE FROM emprestimo WHERE id=?";
+                                                $stmt2 = mysqli_prepare($con, $delete_query);
+                                                mysqli_stmt_bind_param($stmt2, 'i', $livros['id']);
+                                                mysqli_stmt_execute($stmt2);
                                             }
+                                        }
 
 
 
 
-                                            if (mysqli_num_rows($query_run) > 0) {
-                                                foreach ($query_run as $livros) {
-                                                    //converter as datas
-                                                    $dataEmprestimo = DateTime::createFromFormat('Y-m-d', $livros['data_emprestimo'])->format('d-m-Y');
-                                                    $dataDevolucao = DateTime::createFromFormat('Y-m-d', $livros['data_devolucao'])->format('d-m-Y');
-                                                    ?>
-
-                                                    <tr>
-                                                        <div class="row"
-                                                            style="background-color: #ecf2f9; margin-bottom:10px; border-radius: 10px;  padding: 37px;">
-                                                            <div class="col-md-11 ">
-                                                                Livro
-                                                                <strong style="color:#0B5ED7;">
-                                                                    <?= $livros['livro'] ?>
-                                                                </strong>
-                                                                emprestado ao aluno(a)
-                                                                <strong style="color:#0B5ED7;">
-                                                                    <?= $livros['aluno'] ?>
-                                                                </strong>
-                                                                do curso
-                                                                <?= $livros['curso'] ?>
-                                                                , Ano/turma
-                                                                <?= $livros['ano_turma'] ?>
-                                                                , portador do email
-                                                                <?= $livros['email'] ?>
-                                                                com data de empréstimo em
-                                                                <strong style="color:#0B5ED7;">
-                                                                    <?= $dataEmprestimo ?>
-                                                                </strong>
-                                                                e devolução agendada para  <strong style="color:#0B5ED7;">
-                                                                    <?= $dataDevolucao ?>
-                                                                </strong>
-                                                            </div>
-
-                                                            <div class="col-md-1 ">
-                                                                <form action="transferir_livro.php" method="post" style="">
-                                                                    <input type="hidden" name="livro_id"
-                                                                        value="<?= $livros['id']; ?>">
-                                                                    <button type="submit" class="btn btn-primary btn-sm"
-                                                                        style=" display: flex;    justify-content: center; align-items:">
-                                                                        Entregue
-                                                                    </button>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </tr>
-                                                    <?php
-                                                }
-                                            }
-                                            ?>
-                                            <?php
-                                        } else {
-                                            $pesquisa = $con->real_escape_string($_GET['busca']);
-                                            $sql_code = "SELECT * FROM emprestimo WHERE id LIKE '%$pesquisa%' 
-                                                OR aluno LIKE '%$pesquisa%' 
-                                                OR ano_turma LIKE '%$pesquisa%' OR livro LIKE '%$pesquisa%'";
-                                            $sql_query = $con->query($sql_code) or die("ERRO ao consultar! " . $con->$error);
-
-                                            if ($sql_query->num_rows == 0) {
+                                        if (mysqli_num_rows($query_run) > 0) {
+                                            foreach ($query_run as $livros) {
+                                                //converter as datas
+                                                $dataEmprestimo = DateTime::createFromFormat('Y-m-d', $livros['data_emprestimo'])->format('d-m-Y');
+                                                $dataDevolucao = DateTime::createFromFormat('Y-m-d', $livros['data_devolucao'])->format('d-m-Y');
 
                                                 ?>
+
                                                 <tr>
-                                                    <td colspan="3">Nenhum resultado encontrado...</td>
+                                                    <div class="row"
+                                                        style="background-color: #ecf2f9; margin-bottom:10px; border-radius: 10px;  padding: 37px;">
+                                                        <div class="col-md-11 ">
+                                                            Livro
+                                                            <strong style="color:#0B5ED7;">
+                                                                <?= $livros['livro'] ?>
+                                                            </strong>
+                                                            emprestado ao aluno(a)
+                                                            <strong style="color:#0B5ED7;">
+                                                                <?= $livros['aluno'] ?>
+                                                            </strong>
+                                                            do curso
+                                                            <?= $livros['curso'] ?>
+                                                            , Ano/turma
+                                                            <?= $livros['ano_turma'] ?>
+                                                            , portador do email
+                                                            <?= $livros['email'] ?>
+                                                            com data de empréstimo em
+                                                            <strong style="color:#0B5ED7;">
+                                                                <?= $dataEmprestimo ?>
+                                                            </strong>
+                                                            e devolução agendada para  <strong style="color:#0B5ED7;">
+                                                                <?= $dataDevolucao ?>
+                                                            </strong>
+                                                        </div>
+
+                                                        <div class="col-md-1 ">
+                                                            <form action="transferir_livro.php" method="post" style="">
+                                                                <input type="hidden" name="livro_id" value="<?= $livros['id']; ?>">
+                                                                <button type="submit" class="btn btn-primary btn-sm"
+                                                                    style=" display: flex;    justify-content: center; align-items:">
+                                                                    Entregar
+                                                                </button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
                                                 </tr>
                                                 <?php
-                                            } else {
-                                                while ($livros = $sql_query->fetch_assoc()) {
-                                                    //converter as datas
-                                                    $dataEmprestimo = DateTime::createFromFormat('Y-m-d', $livros['data_emprestimo'])->format('d-m-Y');
-                                                    $dataDevolucao = DateTime::createFromFormat('Y-m-d', $livros['data_devolucao'])->format('d-m-Y');
-                                                    ?>
-                                                    <tr>
-                                                        <div class="row"
-                                                            style="background-color: #ecf2f9; margin-bottom:10px; border-radius: 10px;  padding: 37px;">
-                                                            <div class="col-md-11 ">
-                                                                Livro
-                                                                <strong style="color:#0B5ED7;">
-                                                                    <?= $livros['livro'] ?>
-                                                                </strong>
-                                                                emprestado ao aluno(a)
-                                                                <strong style="color:#0B5ED7;">
-                                                                    <?= $livros['aluno'] ?>
-                                                                </strong>
-                                                                do curso
-                                                                <?= $livros['curso'] ?>
-                                                                , Ano/turma
-                                                                <?= $livros['ano_turma'] ?>
-                                                                , portador do email
-                                                                <?= $livros['email'] ?>
-                                                                com data de empréstimo em
-                                                                <strong style="color:#0B5ED7;">
-                                                                    <?= $dataEmprestimo ?>
-                                                                </strong>
-                                                                e devolução agendada para  <strong style="color:#0B5ED7;">
-                                                                    <?= $dataDevolucao ?>
-                                                                </strong>
-                                                            </div>
-
-                                                            <div class="col-md-1 ">
-                                                                <form action="transferir_livro.php" method="post" style="">
-                                                                    <input type="hidden" name="livro_id"
-                                                                        value="<?= $livros['id']; ?>">
-                                                                    <button type="submit" class="btn btn-primary btn-sm"
-                                                                        style=" display: flex;    justify-content: center; align-items:">
-                                                                        Entregar
-                                                                    </button>
-                                                                </form>
-                                                            </div>
-                                                        </div>
-                                                    </tr>
-                                                    <?php
-                                                }
                                             }
                                         }
                                         ?>
-                                    </tbody>
-                                </table>
+                                        <?php
+                                    } else {
+                                        $pesquisa = $con->real_escape_string($_GET['busca']);
+                                        $sql_code = "SELECT * FROM emprestimo WHERE id LIKE '%$pesquisa%' 
+                                                OR aluno LIKE '%$pesquisa%' 
+                                                OR ano_turma LIKE '%$pesquisa%' OR livro LIKE '%$pesquisa%'";
+                                        $sql_query = $con->query($sql_code) or die("ERRO ao consultar! " . $con->$error);
 
-                            </div>
+                                        if ($sql_query->num_rows == 0) {
+
+                                            ?>
+                                            <tr>
+                                                <td colspan="3">Nenhum resultado encontrado...</td>
+                                            </tr>
+                                            <?php
+                                        } else {
+                                            while ($livros = $sql_query->fetch_assoc()) {
+                                                //converter as datas
+                                                $dataEmprestimo = DateTime::createFromFormat('Y-m-d', $livros['data_emprestimo'])->format('d-m-Y');
+                                                $dataDevolucao = DateTime::createFromFormat('Y-m-d', $livros['data_devolucao'])->format('d-m-Y');
+                                                ?>
+                                                <tr>
+                                                    <div class="row"
+                                                        style="background-color: #ecf2f9; margin-bottom:10px; border-radius: 10px;  padding: 37px;">
+                                                        <div class="col-md-11 ">
+                                                            Livro
+                                                            <strong style="color:#0B5ED7;">
+                                                                <?= $livros['livro'] ?>
+                                                            </strong>
+                                                            emprestado ao aluno(a)
+                                                            <strong style="color:#0B5ED7;">
+                                                                <?= $livros['aluno'] ?>
+                                                            </strong>
+                                                            do curso
+                                                            <?= $livros['curso'] ?>
+                                                            , Ano/turma
+                                                            <?= $livros['ano_turma'] ?>
+                                                            , portador do email
+                                                            <?= $livros['email'] ?>
+                                                            com data de empréstimo em
+                                                            <strong style="color:#0B5ED7;">
+                                                                <?= $dataEmprestimo ?>
+                                                            </strong>
+                                                            e devolução agendada para  <strong style="color:#0B5ED7;">
+                                                                <?= $dataDevolucao ?>
+                                                            </strong>
+                                                        </div>
+
+                                                        <div class="col-md-1 ">
+                                                            <form action="transferir_livro.php" method="post" style="">
+                                                                <input type="hidden" name="livro_id" value="<?= $livros['id']; ?>">
+                                                                <button type="submit" class="btn btn-primary btn-sm"
+                                                                    style=" display: flex;    justify-content: center; align-items:">
+                                                                    Entregar
+                                                                </button>
+                                                            </form>
+                                                        </div>
+                                                    </div>
+                                                </tr>
+                                                <?php
+                                            }
+                                        }
+                                    }
+                                    ?>
+                                </tbody>
+                            </table>
+
                         </div>
                     </div>
                 </div>
-
-
-
             </div>
+
+
+
+
         </div>
 
 

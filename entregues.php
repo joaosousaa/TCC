@@ -56,7 +56,7 @@ $totalentregue = $row['total_rows'];
                             <path
                                 d="M2.5 15a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1h-11zm2-13v1c0 .537.12 1.045.337 1.5h6.326c.216-.455.337-.963.337-1.5V2h-7zm3 6.35c0 .701-.478 1.236-1.011 1.492A3.5 3.5 0 0 0 4.5 13s.866-1.299 3-1.48V8.35zm1 0v3.17c2.134.181 3 1.48 3 1.48a3.5 3.5 0 0 0-1.989-3.158C8.978 9.586 8.5 9.052 8.5 8.351z" />
                         </svg></button>
-                    <div class="legenda">Atríbuidos</div>
+                    <div class="legenda">Emprestados</div>
                 </div>
                 <div class="mb-4 text-center">
                     <button class="navigateButton hover-animated-button" data-url="pendentes.php"> <svg
@@ -77,7 +77,7 @@ $totalentregue = $row['total_rows'];
                         </svg></button>
                     <div class="legenda">Entregues</div>
                 </div>
-                <img src="img/sandra.png" alt=""
+                <img src="img/sandra2.png" alt=""
                     style=" margin-top: 4vh; height: 50px; margin-left:34px; border-radius:10px;">
             </div>
         </div>
@@ -108,11 +108,10 @@ $totalentregue = $row['total_rows'];
                 </nav>
             </header>
 
-            <div class="conteudo">
 
                 <div class="row">
                     <div class="col-md-12">
-                        <div class="card" style="whidth:100%; border-radius: 30px;">
+                        <div class="card" style="height: 87vh; border-radius: 30px;">
                             <div class="card-header">
                                 <form action="">
 
@@ -125,7 +124,7 @@ $totalentregue = $row['total_rows'];
                                             </svg></button>
                                         <input name="busca" class="form-control w-25" value="<?php if (isset($_GET['busca']))
                                             echo $_GET['busca']; ?>" placeholder="Digite os termos de pesquisa"
-                                            type="text" style="border-radius: 0px 10px 10px 0px;">
+                                            type="text" style="border-radius: 0px 20px 20px 0px;">
 
                                         <h1 class="tituloo">Livros Entregues: <span style="color: #00B35F;">
                                                 <?php echo "$totalentregue" ?>
@@ -161,7 +160,7 @@ $totalentregue = $row['total_rows'];
 
                                                     <tr>
                                                         <div class="row"
-                                                            style="background-color: #ecf2f9; margin-bottom:10px; border-radius: 10px;  padding: 37px;">
+                                                            style="background-color: #ecf9ef; margin-bottom:10px; border-radius: 10px;  padding: 37px;">
                                                             <div class="col-md-11 ">
                                                                 Livro
                                                                 <strong style="color:#00b35f;">
@@ -223,7 +222,7 @@ $totalentregue = $row['total_rows'];
                                                     ?>
                                                     <tr>
                                                         <div class="row"
-                                                            style="background-color: #ecf2f9; margin-bottom:10px; border-radius: 10px;  padding: 37px;">
+                                                            style="background-color: #ecf9ef; margin-bottom:10px; border-radius: 10px;  padding: 37px;">
                                                             <div class="col-md-11 ">
                                                                 Livro
                                                                 <strong style="color:#00b35f;">
@@ -273,7 +272,7 @@ $totalentregue = $row['total_rows'];
 
 
 
-            </div>
+            
         </div>
 
 

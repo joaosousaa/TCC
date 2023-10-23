@@ -23,7 +23,7 @@ body {
 .search {
     height: 35px;
     width: 35px;
-    border-radius: 10px 0px 0px 10px;
+    border-radius: 20px 0px 0px 20px;
 }
 
 /*cabeçario*/
@@ -70,13 +70,12 @@ body {
     margin: auto;
 }
 
-.navpaginas>a {
+.divnav{
+    font-size: 20px;
     letter-spacing: 3px;
     font-family: 'Bebas Neue', sans-serif;
-    margin-right: 10vh;
-    text-decoration: none;
-    color: white;
-    font-size: 20px;
+    margin-right: 8vh;
+
 }
 
 .animated-underline {
@@ -98,6 +97,10 @@ body {
     transform: scaleX(0);
     transform-origin: right;
     transition: transform 0.3s ease;
+}
+.navemprestimo {
+    font-weight: bolder;
+    font-size: 17px;
 }
 
 .animated-underline:hover {
@@ -168,7 +171,7 @@ body {
     height: 50px;
     width: 50px;
     cursor: pointer;
-    transition: transform 0.3s, background-color 0.3s;
+    transition: transform 0.1s, background-color 0.1s;
     transform: scale(1);
 }
 
@@ -309,8 +312,11 @@ h5 {
 }
 
 .modal {
-    margin-top: 2vh;
     --bs-modal-width: 702px;
 }
-
-/*coluna navegação de paginas*/
+.view{
+    margin-bottom: -0.9rem;
+}
+.view2{
+    margin-bottom: 0rem;
+}
