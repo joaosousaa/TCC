@@ -26,7 +26,7 @@ $logado = $_SESSION['Usuario'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Empréstimo Livros</title>
-    <link rel="shortcut icon" href="img/logob-removebg-preview (1).png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/icon.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
     <style>
@@ -38,7 +38,6 @@ $logado = $_SESSION['Usuario'];
     <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Chivo:wght@100&family=Saira+Condensed:wght@100&display=swap"
         rel="stylesheet">
-
 
 </head>
 
@@ -69,11 +68,11 @@ $logado = $_SESSION['Usuario'];
                             <path
                                 d="M2.5 15a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1h-11zm2-13v1c0 .537.12 1.045.337 1.5h6.326c.216-.455.337-.963.337-1.5V2h-7zm3 6.35c0 .701-.478 1.236-1.011 1.492A3.5 3.5 0 0 0 4.5 13s.866-1.299 3-1.48V8.35zm1 0v3.17c2.134.181 3 1.48 3 1.48a3.5 3.5 0 0 0-1.989-3.158C8.978 9.586 8.5 9.052 8.5 8.351z" />
                         </svg></button>
-                    <div class="legenda">Atríbuidos</div>
+                    <div class="legenda">Emprestados</div>
                 </div>
 
                 <div class="mb-4 text-center">
-                    <button class="navigateButton hover-animated-button" data-url="#"> <svg
+                    <button class="navigateButton hover-animated-button" data-url="pendentes.php"> <svg
                             xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor"
                             class="bi bi-clock-fill" viewBox="0 0 16 16">
                             <path
@@ -83,7 +82,7 @@ $logado = $_SESSION['Usuario'];
                 </div>
 
                 <div class="mb-4 text-center">
-                    <button class="navigateButton hover-animated-button" data-url="#"><svg
+                    <button class="navigateButton hover-animated-button" data-url="entregues.php"><svg
                             xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor"
                             class="bi bi-file-earmark-check-fill" viewBox="0 0 16 16">
                             <path
@@ -92,7 +91,7 @@ $logado = $_SESSION['Usuario'];
                     <div class="legenda">Entregues</div>
                 </div>
 
-                <img src="img/joao.jpg" alt=""
+                <img src="img/sandra2.png" alt=""
                     style="  height: 50px; margin-top: 4vh; margin-left:34px; border-radius:10px;">
 
             </div>
@@ -109,12 +108,22 @@ $logado = $_SESSION['Usuario'];
                             <h3 class="usuario"> <span style="font-size:23px;">Olá</span>,
                                 <?php echo "$logado" ?>!
                             </h3>
-                            <div class="navpaginas">
-                                <a href="livros.php" id="a1" class="animated-underline" style="">ACERVO</a>
-                                <a href="alunos.php" id="a2" class="animated-underline">ALUNOS</a>
-                                <a href="emprestimo.php" id="a3" class="animated-underline"
-                                    style=" font-weight: bolder; font-size: 22px;">EMPRÉSTIMO</a>
+                            <div class="navpaginas  row">
+                                <div class="col divnav"><a href="livros.php" id="a1" class="animated-underline "
+                                        style="">ACERVO</a></div>
+
+                                <div class="col divnav espaco">
+                                    <a href="alunos.php" id="a2" class="animated-underline">ALUNOS</a>
+
+                                </div>
+
+                                <div class="col divnav" style="height: 0vh;">
+                                    <a href="emprestimo.php" id="a3"
+                                        class="animated-underline navemprestimo">EMPRÉSTIMO</a>
+                                    <p style=" width:101px; height: 2px; background-color: white;"></p>
+                                </div>
                             </div>
+
                         </div>
 
                         <label for="" class="labelSair">Sair</label>
@@ -130,17 +139,18 @@ $logado = $_SESSION['Usuario'];
             </header>
 
             <div class="conteudo">
-                <div class="" style="">
+
+                <div>
                     <div class="divFormulario">
 
 
-                        <form action="emprestimo.php" method="POST" class="formLivro">
+                        <form action="emprestimo.php" id="meuFormulario" method="POST" class="formLivro">
 
                             <div class="col-12">
-                                <label for="aluno" class="form-label" style="color:#0B5ED7;">*Aluno</label>
+                                <label for="aluno" class="form-label formprin ">Aluno</label>
                                 <input type="text" name="aluno" class="form-control" id="aluno"
                                     placeholder="Pesquisar Aluno" onkeyup="carregar_alunos(this.value)"
-                                    autocomplete="nope" style="background-color:#f1f6ffed;">
+                                    autocomplete="nope">
                                 <span id="resultado_pesquisa_alunos"></span>
                             </div>
 
@@ -156,44 +166,53 @@ $logado = $_SESSION['Usuario'];
 
 
                             <div class="col-12">
-                                <label for="livro" class="form-label" style="color:#0B5ED7;">*Livro</label>
+                                <label for="livro" class="form-label formprin ">Livro</label>
                                 <input type="text" name="livro" class="form-control" id="livro"
                                     placeholder="Pesquisar Livro" onkeyup="carregar_livros(this.value)"
-                                    autocomplete="off" style="background-color:#f1f6ffed;">
+                                    autocomplete="off">
                                 <span id="resultado_pesquisa"></span>
                             </div>
                             <input type="hidden" name="id_livro" class="form-control" id="id_livro">
                             <input type="hidden" name="quantidade_livro" class="form-control" id="quantidade_livro">
 
-                            <div class="form-group row" style="width: 95vh">
+                            <div class="form-group row" style="width: 95vh ">
                                 <div class="col">
-                                    <label for="data_emprestimo">Data de Empréstimo:</label>
+                                    <label for="data_emprestimo" style="margin-left: 10px; margin-bottom: 0.5rem;">Data
+                                        de
+                                        Empréstimo</label>
                                     <input type="date" class="form-control" id="data_emprestimo" name="data_emprestimo"
-                                        required style="width: 34vh;">
+                                        required style="width: 25vh;">
                                 </div>
 
 
                                 <div class="col">
-                                    <label for="data_devolucao">Data de Devolução:</label>
+                                    <label for="data_devolucao" style="margin-left: 10px; margin-bottom: 0.5rem;">Data
+                                        de
+                                        Devolução</label>
                                     <input type="date" class="form-control" id="data_devolucao" name="data_devolucao"
-                                        required style="width: 34vh;">
+                                        required style="width: 25vh;">
 
                                 </div>
                                 <div class="col">
-                                    <button type="submit" name="submit" class="btn"
-                                        style="background-color:#0B5ED7;  color: white; margin-top: 4vh; ">Emprestar</button>
+                                    <button type="submit" name="submit" class="btn emprestar ">Emprestar</button>
                                 </div>
                             </div>
 
 
 
                         </form>
+                        <a href="alunos.php#openModal" class="cadastrar">Cadastrar Aluno</a>
+                    </div>
+                    <div id="mensagem" class="mensagem-escondida">
+                        Livro emprestado com sucesso!
                     </div>
                 </div>
 
+                <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
+                <script>
 
-                <script>document.querySelectorAll('.navigateButton').forEach(function (button) {
+                    document.querySelectorAll('.navigateButton').forEach(function (button) {
                         button.addEventListener('click', function () {
                             // Obtém o URL do atributo 'data-url' do botão clicado
                             const url = this.getAttribute('data-url');
@@ -212,6 +231,28 @@ $logado = $_SESSION['Usuario'];
                             // Adicione a classe 'selected' ao botão clicado
                             this.classList.add('selected');
                         });
+                    });
+
+                    // mensagem emprestimo
+                    $(document).ready(function () {
+                        $('#meuFormulario').on('submit', function (e) {
+                            e.preventDefault();
+
+                            sessionStorage.setItem('mostrarMensagem', 'true');
+
+                            location.reload();
+                        });
+
+                        if (sessionStorage.getItem('mostrarMensagem') === 'true') {
+
+                            sessionStorage.removeItem('mostrarMensagem');
+
+                            $('#mensagem').fadeIn();
+
+                            setTimeout(function () {
+                                $('#mensagem').fadeOut();
+                            }, 5000);
+                        }
                     });
                 </script>
 

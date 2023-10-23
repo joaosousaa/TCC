@@ -19,6 +19,12 @@ $query = "SELECT COUNT(*) as total_rows FROM emprestimo";
 $result = mysqli_query($con, $query);
 $row = mysqli_fetch_assoc($result);
 $totalemprestado = $row['total_rows'];
+
+$query = "SELECT COUNT(*) as total_rows FROM pendentes";
+
+$result = mysqli_query($con, $query);
+$row = mysqli_fetch_assoc($result);
+$totalpendentes = $row['total_rows'];
 ?>
 
 <!DOCTYPE html>
@@ -29,7 +35,7 @@ $totalemprestado = $row['total_rows'];
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca UpBook</title>
-    <link rel="shortcut icon" href="img/logob-removebg-preview (1).png" type="image/x-icon">
+    <link rel="shortcut icon" href="img/logo3.png" type="image/x-icon">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 
@@ -71,11 +77,11 @@ $totalemprestado = $row['total_rows'];
                             <path
                                 d="M2.5 15a.5.5 0 1 1 0-1h1v-1a4.5 4.5 0 0 1 2.557-4.06c.29-.139.443-.377.443-.59v-.7c0-.213-.154-.451-.443-.59A4.5 4.5 0 0 1 3.5 3V2h-1a.5.5 0 0 1 0-1h11a.5.5 0 0 1 0 1h-1v1a4.5 4.5 0 0 1-2.557 4.06c-.29.139-.443.377-.443.59v.7c0 .213.154.451.443.59A4.5 4.5 0 0 1 12.5 13v1h1a.5.5 0 0 1 0 1h-11zm2-13v1c0 .537.12 1.045.337 1.5h6.326c.216-.455.337-.963.337-1.5V2h-7zm3 6.35c0 .701-.478 1.236-1.011 1.492A3.5 3.5 0 0 0 4.5 13s.866-1.299 3-1.48V8.35zm1 0v3.17c2.134.181 3 1.48 3 1.48a3.5 3.5 0 0 0-1.989-3.158C8.978 9.586 8.5 9.052 8.5 8.351z" />
                         </svg></button>
-                    <div class="legenda">Atríbuidos</div>
+                    <div class="legenda">Emprestados</div>
                 </div>
 
                 <div class="mb-4 text-center">
-                    <button class="navigateButton hover-animated-button" data-url="#"> <svg
+                    <button class="navigateButton hover-animated-button" data-url="pendentes.php"> <svg
                             xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor"
                             class="bi bi-clock-fill" viewBox="0 0 16 16">
                             <path
@@ -85,7 +91,7 @@ $totalemprestado = $row['total_rows'];
                 </div>
 
                 <div class="mb-4 text-center">
-                    <button class="navigateButton hover-animated-button" data-url="#"><svg
+                    <button class="navigateButton hover-animated-button" data-url="entregues.php"><svg
                             xmlns="http://www.w3.org/2000/svg" width="20" height="25" fill="currentColor"
                             class="bi bi-file-earmark-check-fill" viewBox="0 0 16 16">
                             <path
@@ -94,7 +100,7 @@ $totalemprestado = $row['total_rows'];
                     <div class="legenda">Entregues</div>
                 </div>
 
-                <img src="img/joao.jpg" alt=""
+                <img src="img/sandra2.png" alt=""
                     style="  height: 50px;  margin-top: 4vh; margin-left:34px; border-radius:10px;">
 
             </div>
@@ -112,10 +118,15 @@ $totalemprestado = $row['total_rows'];
                                     style="font-size:23px; font-family: 'Saira Condensed', sans-serif;">Olá</span>,
                                 <?php echo "$logado" ?>!
                             </h3>
-                            <div class="navpaginas">
-                                <a href="livros.php" id="a1" class="animated-underline" style="">ACERVO</a>
-                                <a href="alunos.php" id="a2" class="animated-underline">ALUNOS</a>
-                                <a href="emprestimo.php" id="a3" class="animated-underline">EMPRÉSTIMO</a>
+                            <div class="navpaginas row">
+
+                                <div class="col divnav" style="height: 0vh;">
+                                    <a href="livros.php" id="a1" class="animated-underline">ACERVO</a>
+                                </div>
+                                <div class="col divnav"><a href="alunos.php" id="a2" class="animated-underline "
+                                        style="">ALUNOS</a></div>
+                                <div class="col divnav"><a href="emprestimo.php" id="a3"
+                                        class="animated-underline ">EMPRÉSTIMO</a></div>
                             </div>
                         </div>
 
@@ -134,28 +145,30 @@ $totalemprestado = $row['total_rows'];
             <div class="conteudo">
                 <div class="row conteudoPrincipal m " style="padding-top: 30px;">
 
-                    <div class="col-md-2 caixas caixa1">
+                    <div class="col-md-2 caixas caixa1 navigateButton " data-url="livros.php">
                         <div class="row">
-                            <div class="col-md-2" style="width: 44.666667%;">
-                                <h4>Livros Cadastrado</h4>
+                            <div class="col-md-2" style="width: 47.666667%;">
+                                <h4>Livros Cadastrados</h4>
                                 <span style="color:white; font-size: 90px;">
                                     <?php echo "$totalRows" ?>
                                 </span>
                             </div>
-                            <div class="col-md-2" style="">
-                                <img src="img/luminaria.png" class="col" style="    height: 40%;
+                            <div class="col-md-2" style="height: 37vh;">
+                                <img src="img/luminaria.png" class="col" style="    height: 71%;
                                 margin-top: 68px;" alt="">
                             </div>
                         </div>
                     </div>
 
-                    <div class="col-md-2 caixas caixa2">
+                    <div class="col-md-2 caixas caixa2 navigateButton " data-url="pendentes.php">
                         <div class="row" style="height: 24vh;">
                             <div class="row">
                                 <h4 class="imgAlarme" style="color: black; margin-top: 20px; ">Livros Pendentes</h4>
                             </div>
                             <div class="col-md-2" style="width: 50.666667%;">
-                                <span style="color: black;font-size: 90px;">0</span>
+                                <span style="color: black;font-size: 90px;">
+                                    <?php echo "$totalpendentes" ?>
+                                </span></span>
                             </div>
                             <div class="col-md-2">
                                 <img src="img/velocimetro.png" style="height: 35%; margin-top: 4vh; margin-bottom: 4px;"
@@ -188,13 +201,15 @@ $totalemprestado = $row['total_rows'];
 
                 <div class="row conteudoPrincipal">
 
-                    <div class="col-md-2 caixas caixa4">
+                    <div class="col-md-2 caixas caixa4 navigateButton " data-url="atribuidos.php">
                         <div class="row" style="height: 24vh;">
                             <div class="row">
                                 <h4 class="imgAlarme" style="color: #F4B544; margin-top: 20px; ">Livros Emprestados</h4>
                             </div>
                             <div class="col-md-2" style="width: 47.666667%;">
-                                <span style="color: #F4B544;font-size: 90px;"><?php echo "$totalemprestado" ?></span>
+                                <span style="color: #F4B544;font-size: 90px;">
+                                    <?php echo "$totalemprestado" ?>
+                                </span>
                             </div>
                             <div class="col-md-2">
                                 <img src="img/livroemprestado.png" style="height: 25%; margin-top: 8vh;
@@ -203,7 +218,7 @@ $totalemprestado = $row['total_rows'];
                         </div>
                     </div>
 
-                    <div class="col-md-2 caixas caixa3">
+                    <div class="col-md-2 caixas caixa3 navigateButton " data-url="alunos.php">
                         <div class="row" style="height: 16vh;">
                             <div class="row">
                                 <h4 class="imgAlarme" style="color: #5156A9; margin-top: 20px; ">Alunos Cadastrados</h4>
@@ -258,7 +273,8 @@ $totalemprestado = $row['total_rows'];
         </div>
     </main>
 
-    <script>document.querySelectorAll('.navigateButton').forEach(function (button) {
+    <script>
+        document.querySelectorAll('.navigateButton').forEach(function (button) {
             button.addEventListener('click', function () {
                 // Obtém o URL do atributo 'data-url' do botão clicado
                 const url = this.getAttribute('data-url');

@@ -5,7 +5,7 @@
 
 body {
     overflow: hidden;
-    background: linear-gradient(to bottom right, #1d87c5, #902f9b);
+    background: linear-gradient(to bottom right, #284e65, #341189);
 }
 
 .imgFundo {
@@ -16,6 +16,15 @@ body {
     z-index: -1;
 }
 
+.form-control {
+    height: 35px;
+}
+
+.search {
+    height: 35px;
+    width: 35px;
+    border-radius: 20px 0px 0px 20px;
+}
 
 /*cabeçario*/
 .container-fluid {
@@ -61,13 +70,12 @@ body {
     margin: auto;
 }
 
-.navpaginas>a {
+.divnav{
+    font-size: 20px;
     letter-spacing: 3px;
     font-family: 'Bebas Neue', sans-serif;
-    margin-right: 10vh;
-    text-decoration: none;
-    color: white;
-    font-size: 20px;
+    margin-right: 8vh;
+
 }
 
 .animated-underline {
@@ -90,6 +98,10 @@ body {
     transform-origin: right;
     transition: transform 0.3s ease;
 }
+.navemprestimo {
+    font-weight: bolder;
+    font-size: 17px;
+}
 
 .animated-underline:hover {
     font-weight: bolder;
@@ -98,7 +110,7 @@ body {
 .animated-underline:hover::after {
     transform: scaleX(1);
     transform-origin: left;
-    
+
 }
 
 /*coluna navegação de páginas*/
@@ -159,7 +171,7 @@ body {
     height: 50px;
     width: 50px;
     cursor: pointer;
-    transition: transform 0.3s, background-color 0.3s;
+    transition: transform 0.1s, background-color 0.1s;
     transform: scale(1);
 }
 
@@ -243,11 +255,6 @@ h5 {
 }
 
 --------------------------------------------------------------------------
-
-
-
-
-
 /*conteudo principal da pagina*/
 
 .row {
@@ -255,6 +262,7 @@ h5 {
     padding: 0;
     width: 100%;
 }
+
 .tituloo {
     font-family: 'Saira Condensed', sans-serif;
     font-weight: bold;
@@ -263,13 +271,16 @@ h5 {
     color: #000000;
     font-size: 30px;
 }
+
 .w-25 {
-    width: 80%!important;
+    width: 50% !important;
 }
+
 .card-body {
     overflow-y: scroll;
     height: 77.6vh;
-    
+    padding: 0;
+
 }
 
 .card-header {
@@ -284,6 +295,7 @@ h5 {
     --bs-table-accent-bg: #0068ff0a;
     color: var(--bs-table-striped-color);
 }
+
 .card-body::-webkit-scrollbar {
     width: 12px;
     background-color: whitesmoke;
@@ -300,11 +312,11 @@ h5 {
 }
 
 .modal {
-    margin-top: 3vh;
     --bs-modal-width: 702px;
 }
-
-/*coluna navegação de paginas*/
-
-
-
+.view{
+    margin-bottom: -0.9rem;
+}
+.view2{
+    margin-bottom: 0rem;
+}

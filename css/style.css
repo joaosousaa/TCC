@@ -2,11 +2,11 @@
     margin: 0px;
     padding: 0px;
 }
-  
+
 
 body {
     overflow: hidden;
-    background: linear-gradient(to bottom right, #1d87c5, #902f9b);
+    background: linear-gradient(to bottom right, #284e65, #341189);
 }
 
 .imgFundo {
@@ -72,8 +72,15 @@ body {
     color: white;
     font-size: 20px;
 }
-
+.divnav{
+    font-size: 20px;
+    letter-spacing: 3px;
+    font-family: 'Bebas Neue', sans-serif;
+    margin-right: 8vh;
+   
+}
 .animated-underline {
+    font-family: 'Bebas Neue', sans-serif;
     position: relative;
     text-decoration: none;
     color: #ffffff;
@@ -101,7 +108,7 @@ body {
 .animated-underline:hover::after {
     transform: scaleX(1);
     transform-origin: left;
-    
+
 }
 
 /*coluna navegação de páginas*/
@@ -165,7 +172,7 @@ body {
     height: 50px;
     width: 50px;
     cursor: pointer;
-    transition: transform 0.3s, background-color 0.3s;
+    transition: transform 0.1s, background-color 0.1s;
     transform: scale(1);
 }
 
@@ -204,7 +211,6 @@ body {
     border-radius: 15px 15px 15px 15px;
     margin-right: 55px;
     width: 439px;
-    box-shadow: 11px 11px 30px rgb(0 0 0 / 21%);
     padding-left: 30px;
     background-color: rgb(255, 255, 255);
     height: 240px;
@@ -216,9 +222,21 @@ body {
     background: linear-gradient(to bottom right, #2482ad, #ff81002e);
 }
 
+.caixa1:hover {
+    transform: scale(1.03);
+    box-shadow: 14px 14px 19px rgb(0 0 0 / 31%);
+    cursor: pointer; 
+}
+
 .caixa2 {
     width: 280px;
-    background-color: #ff81002e;
+    background-color: #ff3e3e1c;
+}
+
+.caixa2:hover {
+    cursor: pointer; 
+    transform: scale(1.03);
+    box-shadow: 14px 14px 19px rgb(0 0 0 / 31%);
 }
 
 .pendeteMsg {
@@ -228,14 +246,26 @@ body {
 }
 
 .caixa3 {
-    background: linear-gradient(to bottom right, #a1e9c8, #adb5bd);
+    background: linear-gradient(to bottom right, #a1e9c8, #737c83);
     height: 240px;
     width: 485px;
+}
+
+.caixa3:hover {
+    cursor: pointer; 
+    transform: scale(1.03);
+    box-shadow: 14px 14px 19px rgb(0 0 0 / 31%);
 }
 
 .caixa4 {
     width: 280px;
     background-color: #EAF0FC;
+}
+
+.caixa4:hover {
+    cursor: pointer; 
+    transform: scale(1.03);
+    box-shadow: 14px 14px 19px rgb(0 0 0 / 31%);
 }
 
 h4 {
@@ -249,4 +279,3 @@ h5 {
     font-weight: bold;
     color: black;
 }
-
